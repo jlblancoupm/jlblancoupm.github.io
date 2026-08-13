@@ -1,9 +1,13 @@
 <header class="site-header">
   <div class="nav-wrap">
-    <nav class="nav-links" aria-label="Primary">
-      <a class="nav-home{% if page.url == '/' %} active{% endif %}" href="/"{% if page.url == '/' %} aria-current="page"{% endif %}>{{ site.data.profile.monogram }}</a>
+    <nav class="nav-links" aria-label="Primary navigation">
       {% for item in site.data.navigation %}
-      <a href="{{ item.url }}"{% if page.url == item.url %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a>
+      <a
+        href="{{ item.url | relative_url }}"
+        data-nav="{{ item.id }}"
+        class="nav-link{% if page.section == item.id %} active{% endif %}"
+        {% if page.section == item.id %}aria-current="page"{% endif %}
+      >{{ item.title }}</a>
       {% endfor %}
     </nav>
   </div>

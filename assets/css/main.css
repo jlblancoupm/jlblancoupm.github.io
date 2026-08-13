@@ -14,11 +14,11 @@ a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
 .site-header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:20}
 .nav-wrap{max-width:var(--max);margin:auto;padding:0 28px;min-height:58px;display:flex;align-items:center}
 .nav-links{display:flex;gap:21px;align-items:center;flex-wrap:wrap;font-size:13px}
-.nav-links a{color:#454b50;padding:19px 0 16px;border-bottom:2px solid transparent;text-decoration:none;white-space:nowrap}
-.nav-links a:hover{color:var(--accent)}
-.nav-links a.active{color:var(--ink);border-bottom-color:var(--accent);font-weight:750}
-.nav-links .nav-home{font-weight:780;letter-spacing:.04em;color:var(--ink)}
-.nav-links .nav-home.active{color:var(--ink)}
+.nav-links .nav-link{color:#454b50;padding:19px 0 16px;border-bottom:2px solid transparent;text-decoration:none;white-space:nowrap;font-weight:450}
+.nav-links .nav-link:hover{color:var(--accent);text-decoration:none}
+.nav-links .nav-link.active{color:var(--ink);border-bottom-color:var(--accent);font-weight:760}
+.nav-links .nav-link[data-nav="home"]{font-weight:780;letter-spacing:.04em;color:var(--ink)}
+.nav-links .nav-link[data-nav="home"].active{color:var(--accent)}
 .layout{max-width:var(--max);margin:0 auto;padding:48px 28px 64px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:62px}
 .sidebar{align-self:start;position:sticky;top:94px}
 .avatar{width:142px;height:142px;border-radius:50%;background:var(--soft);border:1px solid var(--line);overflow:hidden;margin-bottom:20px;display:flex;align-items:center;justify-content:center}
