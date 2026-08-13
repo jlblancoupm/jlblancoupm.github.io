@@ -1,0 +1,65 @@
+---
+layout: default
+title: Supervision
+section: supervision
+permalink: /supervision/
+---
+<h1>Supervision</h1>
+<p class="lede">PhD, MSc and BSc supervision across signal processing, audio and speech, communications, machine learning and applied systems.</p>
+
+{% assign phd_completed = site.data.supervision.records | where: "level", "phd" | where: "status", "completed" %}
+{% assign phd_ongoing = site.data.supervision.records | where: "level", "phd" | where: "status", "ongoing" %}
+{% assign msc_completed = site.data.supervision.records | where: "level", "msc" | where: "status", "completed" %}
+{% assign bsc_completed = site.data.supervision.records | where: "level", "bsc" | where: "status", "completed" %}
+
+<div class="supervision-overview">
+  <span><strong>{{ phd_completed | size }}</strong> completed PhD</span>
+  <span><strong>{{ phd_ongoing | size }}</strong> ongoing PhD</span>
+  <span><strong>{{ msc_completed | size }}</strong> MSc</span>
+  <span><strong>{{ bsc_completed | size }}</strong> BSc</span>
+</div>
+
+<section class="section supervision-catalogue">
+<h2>Theses &amp; final projects</h2>
+<div class="sup-tabs" role="tablist" aria-label="Supervision level">
+  <button class="sup-tab is-active" type="button" data-level="phd">PhD</button>
+  <button class="sup-tab" type="button" data-level="msc">MSc</button>
+  <button class="sup-tab" type="button" data-level="bsc">BSc</button>
+</div>
+<div class="sup-toolbar">
+  <input id="supSearch" type="search" placeholder="Search title or topic…">
+  <select id="supDegree"><option value="">All degrees</option></select>
+  <select id="supYear"><option value="">All years</option></select>
+  <select id="supField"><option value="">All research fields</option>{% for f in site.data.supervision.fields %}<option value="{{ f.id }}">{{ f.label }}</option>{% endfor %}</select>
+  <select id="supStatus"><option value="">All status</option><option value="completed">Completed</option><option value="ongoing">Ongoing</option></select>
+  <button type="button" class="more-filter-button" id="supMoreButton" aria-expanded="false">More filters ▾</button>
+</div>
+<div class="sup-more hidden" id="supMore">
+  <label for="supTopic">Topic / method</label>
+  <select id="supTopic"><option value="">All topics</option>{% for item in site.data.supervision.topic_labels %}<option value="{{ item[0] }}">{{ item[1] }}</option>{% endfor %}</select>
+</div>
+<p class="sup-result-count" id="supResultCount"></p>
+<div class="sup-list" id="supList">
+{% for r in site.data.supervision.records %}
+{% assign field_obj = site.data.supervision.fields | where: "id", r.field | first %}
+<article class="sup-item" data-level="{{ r.level }}" data-degree="{{ r.degree | escape }}" data-year="{% if r.year %}{{ r.year }}{% endif %}" data-field="{{ r.field }}" data-status="{{ r.status }}" data-topics="{{ r.topics | join: ' ' }}" data-search="{{ r.title | default: '' | downcase | escape }} {{ r.name | downcase | escape }} {{ r.degree | downcase | escape }} {% for topic in r.topics %}{{ site.data.supervision.topic_labels[topic] | downcase }} {% endfor %}">
+  <div class="sup-kind">{% if r.level == "phd" %}PhD{% elsif r.level == "msc" %}MSc{% else %}BSc{% endif %} · {{ r.status | capitalize }}{% if r.year %} · {% if r.status == "ongoing" %}expected {% endif %}{{ r.year }}{% endif %}</div>
+      {% if r.title %}<h3>{{ r.title }}</h3>{% endif %}
+<div class="sup-meta">{{ r.name }} · {{ r.degree }}</div>
+  {% if field_obj %}<div class="sup-field">{{ field_obj.label }}</div>{% endif %}
+  {% if r.topics and r.topics.size > 0 %}<div class="sup-topics">{% for topic in r.topics %}<span>{{ site.data.supervision.topic_labels[topic] }}</span>{% unless forloop.last %}<b>·</b>{% endunless %}{% endfor %}</div>{% endif %}
+  {% if r.note %}<div class="sup-note">{{ r.note }}</div>{% endif %}
+  {% if r.url %}<div class="sup-links"><a href="{{ r.url }}" target="_blank" rel="noopener">Open record ↗</a></div>{% endif %}
+</article>
+{% endfor %}
+</div>
+</section>
+
+<section class="section"><h2>Selected topics open to new students</h2>{% for t in site.data.supervision.open_topics %}<div class="project-item"><h3>{{ t.title }}</h3><p>{{ t.text }}</p></div>{% endfor %}</section>
+
+
+<section class="section work-cta">
+  <h2>Interested in working with us?</h2>
+  <p>If you are looking for a BSc, MSc or PhD topic, see the current research areas, application requirements and student enquiry form.</p>
+  <a class="cta-link" href="{{ '/work-with-us/' | relative_url }}" target="_blank" rel="noopener">Student opportunities →</a>
+</section>
