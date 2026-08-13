@@ -1,0 +1,998 @@
+fields:
+- id: audio-speech
+  label: Audio & Speech
+- id: signal-modeling
+  label: Signal Processing & System Modeling
+- id: communications-sensing
+  label: Communications & Sensing
+- id: biomedical
+  label: Biomedical
+- id: industrial-ai
+  label: Industrial & Applied AI
+- id: multimodal-vision
+  label: Multimodal & Vision
+- id: data-intelligent
+  label: Data & Intelligent Systems
+- id: human-communication
+  label: Human Communication & Behaviour
+topic_labels:
+  speech-analysis: Speech analysis
+  speech-synthesis: Speech synthesis
+  voice: Voice
+  audio-processing: Audio processing
+  audio-synthesis: Audio synthesis
+  auralization: Auralization
+  music-information: Music information
+  generative-modeling: Generative modeling
+  deep-learning: Deep learning
+  system-modeling: System modeling
+  system-identification: System identification
+  signal-processing: Signal processing
+  anomaly-detection: Anomaly detection
+  ultrasound: Ultrasound
+  rf-sensing: RF sensing
+  beamforming: Beamforming
+  antenna-arrays: Antenna arrays
+  radar: Radar
+  communications: Communications
+  multimodal-learning: Multimodal learning
+  computer-vision: Computer vision
+  video: Video
+  geospatial: Geospatial data
+  lidar: LiDAR
+  recommender-systems: Recommender systems
+  data-analytics: Data analytics
+  machine-learning: Machine learning
+  clustering: Clustering
+  industrial-ai: Industrial AI
+  mining: Mining
+  biomedical-imaging: Biomedical imaging
+  cell-migration: Cell migration
+  sleep-apnea: Sleep apnoea
+  clinical-monitoring: Clinical monitoring
+  neurocommunication: Neurocommunication
+  human-behaviour: Human behaviour
+  quantitative-finance: Quantitative finance
+  iot: IoT
+  lorawan: LoRaWAN
+  web-systems: Web systems
+  mobile-apps: Mobile apps
+  navigation: Navigation
+  road-networks: Road networks
+  reinforcement-learning: Reinforcement learning
+records:
+- level: phd
+  name: A. Montero
+  title: Statistical analysis of the connection between sleep apnea and speech
+  degree: PhD · Communication Technologies and Systems
+  year: 2017
+  status: completed
+  field: biomedical
+  topics:
+  - speech-analysis
+  - sleep-apnea
+  - voice
+- level: phd
+  name: J. Coronel
+  title: Contributions to wide-spectrum characterization of liquid solutions using SDR technology
+  degree: PhD · Communication Technologies and Systems
+  year: 2021
+  status: completed
+  field: communications-sensing
+  topics:
+  - rf-sensing
+  - system-modeling
+  - signal-processing
+- level: phd
+  name: M. Cámara
+  title: null
+  degree: PhD · Communication Technologies and Systems
+  year: 2024
+  status: completed
+  field: null
+  topics: []
+  note: Thesis title is not listed in the current CV.
+- level: phd
+  name: J. Gutiérrez
+  title: null
+  degree: PhD · Communication Technologies and Systems
+  year: 2027
+  status: ongoing
+  field: null
+  topics: []
+  note: Expected defence year; thesis title is not listed in the current CV.
+- level: phd
+  name: F. Marcos
+  title: null
+  degree: PhD · Communication Technologies and Systems
+  year: 2028
+  status: ongoing
+  field: null
+  topics: []
+  note: Expected defence year; thesis title is not listed in the current CV.
+- level: phd
+  name: S. Loza
+  title: null
+  degree: PhD · Communication Technologies and Systems
+  year: 2029
+  status: ongoing
+  field: null
+  topics: []
+  note: Expected defence year; thesis title is not listed in the current CV.
+- level: phd
+  name: M. Daza
+  title: null
+  degree: PhD · Communication Technologies and Systems
+  year: 2029
+  status: ongoing
+  field: null
+  topics: []
+  note: Expected defence year; thesis title is not listed in the current CV.
+- level: phd
+  name: V. Gutiérrez
+  title: null
+  degree: PhD · Communication Technologies and Systems
+  year: 2029
+  status: ongoing
+  field: null
+  topics: []
+  note: Expected defence year; thesis title is not listed in the current CV.
+- level: msc
+  name: A. Dedemadis
+  title: Estudio de características acústicas en pacientes del síndrome de apnea-hipoapnea
+  degree: MUTSC
+  year: 2011
+  status: completed
+  field: biomedical
+  topics:
+  - speech-analysis
+  - sleep-apnea
+  - voice
+- level: msc
+  name: O. Gómez
+  title: Patrones del comportamiento no verbal y verbal de Don Vitto Corleone en sus negociaciones
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - human-behaviour
+  - neurocommunication
+- level: msc
+  name: D. Xu
+  title: La economía del fan. Nuevas formas de comunicación que desembocan en una nueva economía
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - human-behaviour
+- level: msc
+  name: I. Moreno
+  title: Mirada y comunicación interpersonal
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - human-behaviour
+- level: msc
+  name: A. Varón
+  title: 'Contribuciones al análisis del discurso político desde la neurocomunicacion: un caso práctico'
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - neurocommunication
+  - human-behaviour
+- level: msc
+  name: J. González
+  title: Marketing, neuropolítica y emoción en el Independentismo catalán de octubre a diciembre de 2017.
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - neurocommunication
+  - human-behaviour
+- level: msc
+  name: I. Linares
+  title: El marketing viral en el cine. El caso de Deadpool.
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - human-behaviour
+- level: msc
+  name: S. Valiente
+  title: Implementación y evaluación de un sistema de monitorización y evaluación del consumo para flotas de vehículos.
+  degree: MUIT
+  year: null
+  status: completed
+  field: data-intelligent
+  topics:
+  - data-analytics
+  - road-networks
+- level: msc
+  name: R. Guimarey
+  title: Design and implementation of a big-data, recommender system architecture incorporating content-based and collaborative filtering.
+  degree: MUIT
+  year: null
+  status: completed
+  field: data-intelligent
+  topics:
+  - recommender-systems
+  - data-analytics
+  - machine-learning
+- level: msc
+  name: W. Guzmán
+  title: Evaluación de elementos no verbales del habla. Una herramienta complementaria en la métrica del desempeño en telemarketing
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - speech-analysis
+  - human-behaviour
+- level: msc
+  name: N. Nogueras
+  title: La comunicación inconsciente y su relación con los grupos de trabajo dentro del entorno empresarial
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - human-behaviour
+- level: msc
+  name: M. Centeno
+  title: Principio de reciprocidad y satisfacción del consumidor en la recepción de empresas turísticas
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - human-behaviour
+- level: msc
+  name: A. Bergua
+  title: 'Un caso de estudio comparado en neuroventas: establecimiento online vs. establecimiento físico'
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - neurocommunication
+  - human-behaviour
+- level: msc
+  name: T. Teng
+  title: El impacto de la neurocomunicación en la empresa.
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - neurocommunication
+- level: msc
+  name: J. Tomé
+  title: Desarrollo y evaluación de un sistema de extracción y modelado de infraestructuras vehiculares mediante fusión de datos sobre puntos
+    LiDAR.
+  degree: MUIT
+  year: null
+  status: completed
+  field: multimodal-vision
+  topics:
+  - lidar
+  - geospatial
+  - road-networks
+  - system-modeling
+- level: msc
+  name: C. Cardon
+  title: Desarrollo y prueba de concepto sobre un plan de intervención basado en atención plena para la reducción del estrés laboral.
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - human-behaviour
+- level: msc
+  name: M. Soler
+  title: Diseño de un plan de entrenamiento neurocognitivo para el desarrollo de la autogestión emocional y del autoconcepto.
+  degree: MNeuro
+  year: null
+  status: completed
+  field: human-communication
+  topics:
+  - neurocommunication
+  - human-behaviour
+- level: msc
+  name: G. Reyes
+  title: La voz bilingüe en la empresa.
+  degree: MNeuro
+  year: null
+  status: completed
+  field: audio-speech
+  topics:
+  - voice
+  - speech-analysis
+- level: msc
+  name: S. Coira
+  title: Detección de infraestructuras, marcas viales y vehículos en ortofotos sobre el sistema vial español.
+  degree: MUIT
+  year: null
+  status: completed
+  field: multimodal-vision
+  topics:
+  - computer-vision
+  - geospatial
+  - road-networks
+- level: msc
+  name: A. Glushchenko
+  title: Study and implementation of an information system and consultation service for events in road networks.
+  degree: MUIT
+  year: null
+  status: completed
+  field: data-intelligent
+  topics:
+  - road-networks
+  - web-systems
+  - data-analytics
+- level: msc
+  name: J. Gutiérrez
+  title: Estudio para el desarrollo de un sistema de apoyo a la anotación de video con un modelo agnóstico de imagen y texto
+  degree: MUIT
+  year: null
+  status: completed
+  field: multimodal-vision
+  topics:
+  - video
+  - multimodal-learning
+  - computer-vision
+- level: msc
+  name: G. Jurado
+  title: Techniques for monitoring the evolution of the diabetic foot
+  degree: MUIT
+  year: null
+  status: completed
+  field: biomedical
+  topics:
+  - clinical-monitoring
+  - biomedical-imaging
+- level: msc
+  name: M. Sánchez
+  title: Zero-Shot Sonorizing of Video Sequences
+  degree: MUIT
+  year: null
+  status: completed
+  field: multimodal-vision
+  topics:
+  - video
+  - multimodal-learning
+  - audio-synthesis
+- level: msc
+  name: J. Vara
+  title: Diseño e implementación de un sistema de red para el despliegue, operación, monitorización y control de servicios de inteligencia artificial
+    en una cantera
+  degree: MUIT
+  year: null
+  status: completed
+  field: industrial-ai
+  topics:
+  - industrial-ai
+  - mining
+  - communications
+- level: msc
+  name: N. Oliva
+  title: Implementación y evaluación de modelos de clusterización para perfilado de clientes con datos geolocalizados
+  degree: MUIT
+  year: null
+  status: completed
+  field: data-intelligent
+  topics:
+  - clustering
+  - geospatial
+  - data-analytics
+- level: msc
+  name: F. Marcos
+  title: Development of a System for Characterization and Compensation for Next-Generation Audio
+  degree: MUTSC
+  year: null
+  status: completed
+  field: audio-speech
+  topics:
+  - audio-processing
+  - system-modeling
+  - signal-processing
+- level: msc
+  name: Á. Águeda
+  title: Contribución al desarrollo de una herramienta inteligente de recogida de registros de audio
+  degree: MUIT
+  year: null
+  status: completed
+  field: audio-speech
+  topics:
+  - audio-processing
+  - machine-learning
+- level: msc
+  name: I. Torres
+  title: Analysis of crossmodal representation and understanding of actions using CLIP
+  degree: MUIT
+  year: null
+  status: completed
+  field: multimodal-vision
+  topics:
+  - multimodal-learning
+  - video
+  - deep-learning
+- level: msc
+  name: P. Regodón
+  title: Desarrollo de una herramienta de búsqueda masiva de activos digitales basada en representaciones de modalidad cruzada
+  degree: MUIT
+  year: null
+  status: completed
+  field: multimodal-vision
+  topics:
+  - multimodal-learning
+  - deep-learning
+- level: msc
+  name: J. Martínez
+  title: Análisis, estudio de viabilidad y diseño preliminar de un método de aprendizaje por refuerzo para la optimización paramétrica dinámica
+    en radares primarios
+  degree: RADAR
+  year: null
+  status: completed
+  field: communications-sensing
+  topics:
+  - radar
+  - reinforcement-learning
+  - machine-learning
+- level: msc
+  name: D. de la Fuente
+  title: Análisis comparativo en la detección de modulaciones de frecuencia mediante esquemas adaptados y redes neuronales.
+  degree: RADAR
+  year: null
+  status: completed
+  field: communications-sensing
+  topics:
+  - radar
+  - signal-processing
+  - deep-learning
+- level: msc
+  name: M. Daza
+  title: Development and Evaluation of Advanced Training Strategies for a Text-to-Speech System
+  degree: MUTSC
+  year: null
+  status: completed
+  field: audio-speech
+  topics:
+  - speech-synthesis
+  - deep-learning
+  - generative-modeling
+- level: msc
+  name: J. Rincón
+  title: Development of a Tool for Generating Realistic Imaging Sequences to Assess Cell Migration
+  degree: MUTSC
+  year: null
+  status: completed
+  field: biomedical
+  topics:
+  - biomedical-imaging
+  - cell-migration
+  - generative-modeling
+- level: msc
+  name: B. Rodríguez
+  title: null
+  degree: MUIT
+  year: null
+  status: ongoing
+  field: communications-sensing
+  topics: []
+  note: INDRA–GAPS programme; title is not specified in the current CV.
+- level: msc
+  name: Á. Rodrigo
+  title: null
+  degree: MUIT
+  year: null
+  status: ongoing
+  field: communications-sensing
+  topics: []
+  note: INDRA–GAPS programme; title is not specified in the current CV.
+- level: bsc
+  name: S. Valiente
+  title: Extensión topográfica de la cartografía del sistema vial basada en datos LIDAR. Desarrollo y evaluación.
+  degree: GITST
+  year: 2018
+  status: completed
+  field: multimodal-vision
+  topics:
+  - geospatial
+  - lidar
+  - road-networks
+- level: bsc
+  name: E. Rodríguez
+  title: Desarrollo de un sistema integrado para la estimación de puntos kilométricos sobre cartografía mediante procesado automático de imagen.
+  degree: GITST
+  year: 2018
+  status: completed
+  field: multimodal-vision
+  topics:
+  - computer-vision
+  - geospatial
+  - road-networks
+- level: bsc
+  name: L. Fernández
+  title: Uso del análisis avanzado de datos e inteligencia de negocio aplicado al diseño de servicio en modelo lean.
+  degree: GITST
+  year: 2018
+  status: completed
+  field: data-intelligent
+  topics:
+  - data-analytics
+- level: bsc
+  name: J. Martínez
+  title: Desarrollo de un sistema de evaluación de recomendaciones y estrategias en ventas on-line.
+  degree: GITST
+  year: 2019
+  status: completed
+  field: data-intelligent
+  topics:
+  - recommender-systems
+  - data-analytics
+- level: bsc
+  name: R. Guinovart
+  title: Desarrollo de un sistema de detección y caracterización de vocalizaciones sónicas y ultrasónicas en registros de laboratorio.
+  degree: GITST
+  year: 2019
+  status: completed
+  field: audio-speech
+  topics:
+  - audio-processing
+  - signal-processing
+- level: bsc
+  name: C. García
+  title: Estudio e implementación de esquemas para la mejora y evaluación de la segmentación en imágenes de catálogo.
+  degree: GITST
+  year: 2020
+  status: completed
+  field: multimodal-vision
+  topics:
+  - computer-vision
+  - machine-learning
+- level: bsc
+  name: J. Fernández
+  title: Implementación de un sistema de multiplexado para instrumentalizar una apertura bidimensional de transductores ultrasónicos dispersos.
+  degree: GITST
+  year: 2020
+  status: completed
+  field: communications-sensing
+  topics:
+  - ultrasound
+  - signal-processing
+- level: bsc
+  name: G. Jurado
+  title: Desarrollo de un sistema automático de evaluación de registros sónicos y ultrasónicos para ensayos experimentales.
+  degree: GITST
+  year: 2022
+  status: completed
+  field: communications-sensing
+  topics:
+  - ultrasound
+  - signal-processing
+- level: bsc
+  name: Á. Águeda
+  title: Desarrollo de un sistema automático de sincronización y evaluación de registros multimodales sobre ensayos clínicos experimentales.
+  degree: GITST
+  year: 2022
+  status: completed
+  field: biomedical
+  topics:
+  - multimodal-learning
+  - clinical-monitoring
+  - signal-processing
+- level: bsc
+  name: M. Armijos
+  title: Diseño e implementación de mejoras basadas en el tratamiento digital de voz y audio sobre contenidos multimedia sintéticos.
+  degree: GITST
+  year: 2022
+  status: completed
+  field: audio-speech
+  topics:
+  - speech-analysis
+  - audio-processing
+- level: bsc
+  name: F. Pontón
+  title: Estudio para la implementación de efectos de audio 3D en el motor de audio de Doom.
+  degree: GITST
+  year: 2022
+  status: completed
+  field: audio-speech
+  topics:
+  - audio-processing
+  - auralization
+- level: bsc
+  name: J. de la Hoz
+  title: Desarrollo de un demostrador para navegación inteligente de vehículos basado en filtrado de elevaciones.
+  degree: GITST
+  year: 2022
+  status: completed
+  field: data-intelligent
+  topics:
+  - navigation
+  - geospatial
+  - signal-processing
+- level: bsc
+  name: J. Vara
+  title: Estudio sobre la reconstrucción de rutas vehiculares con muestreos de baja densidad
+  degree: GITST
+  year: 2023
+  status: completed
+  field: data-intelligent
+  topics:
+  - navigation
+  - road-networks
+  - geospatial
+- level: bsc
+  name: D. Peña
+  title: Desarrollo e implementación de una herramienta de simulación y aplicación del campo de profundidad y sus efectos en imágenes sintéticas
+  degree: GITST
+  year: 2023
+  status: completed
+  field: multimodal-vision
+  topics:
+  - computer-vision
+- level: bsc
+  name: P. Sánchez
+  title: Desarrollo de una herramienta de sustitución automática de sonidos de bombo y caja
+  degree: GITST
+  year: 2023
+  status: completed
+  field: audio-speech
+  topics:
+  - audio-processing
+  - music-information
+- level: bsc
+  name: F. Marcos
+  title: Diseño de un sistema para el empleo de esquemas profundos en auralización sintética
+  degree: GITST
+  year: 2023
+  status: completed
+  field: audio-speech
+  topics:
+  - auralization
+  - deep-learning
+  - audio-synthesis
+- level: bsc
+  name: R. Tamaki
+  title: Análisis de la generación de variabilidad en audios repetitivos mediante esquemas profundos
+  degree: GITST
+  year: 2023
+  status: completed
+  field: audio-speech
+  topics:
+  - generative-modeling
+  - deep-learning
+  - audio-processing
+- level: bsc
+  name: M. Blanco
+  title: Desarrollo de una herramienta de visualización para el análisis exploratorio sobre siniestralidad y seguridad en la red de carreteras
+    de España
+  degree: GITST
+  year: 2024
+  status: completed
+  field: data-intelligent
+  topics:
+  - data-analytics
+  - road-networks
+  - geospatial
+- level: bsc
+  name: I. Alonso
+  title: Desarrollo de un espacio para comercio electrónico destinado a una pequeña empresa de venta de productos
+  degree: GITST
+  year: 2024
+  status: completed
+  field: data-intelligent
+  topics:
+  - web-systems
+- level: bsc
+  name: M. Daza
+  title: Implementación y evaluación de sistemas de clonación vocal guiados por la selección no supervisada de registros de audio
+  degree: GISD
+  year: 2024
+  status: completed
+  field: audio-speech
+  topics:
+  - speech-synthesis
+  - voice
+  - generative-modeling
+  - machine-learning
+- level: bsc
+  name: J. Rincón
+  title: Desarrollo de un sistema generativo para modelar la migración celular en cáncer mediante Inteligencia Artificial
+  degree: GISD
+  year: 2024
+  status: completed
+  field: biomedical
+  topics:
+  - generative-modeling
+  - cell-migration
+  - biomedical-imaging
+- level: bsc
+  name: E. García
+  title: Desarrollo de un back para Inteligencia Artificial dentro de una APP de minería
+  degree: GITST
+  year: 2024
+  status: completed
+  field: industrial-ai
+  topics:
+  - industrial-ai
+  - mining
+  - web-systems
+- level: bsc
+  name: S. Romaguera
+  title: Desarrollo de una APP para la presentación de resultados y visualizaciones en minería.
+  degree: GITST
+  year: 2024
+  status: completed
+  field: industrial-ai
+  topics:
+  - mining
+  - mobile-apps
+  - data-analytics
+- level: bsc
+  name: F. Castell
+  title: Desarrollo de una prueba de concepto sobre anotación de video apoyada por inteligencia artificial
+  degree: GITST
+  year: 2024
+  status: completed
+  field: multimodal-vision
+  topics:
+  - video
+  - computer-vision
+  - machine-learning
+  url: https://oa.upm.es/83613/
+- level: bsc
+  name: D. Gamo
+  title: Desarrollo de una interfaz APP para la adquisición de video geo-posicionado
+  degree: GITST
+  year: 2024
+  status: completed
+  field: multimodal-vision
+  topics:
+  - video
+  - geospatial
+  - mobile-apps
+- level: bsc
+  name: C. Páramo
+  title: Desarrollo de un módulo de captura de video geo-posicionado para una APP de minería
+  degree: GITST
+  year: 2024
+  status: completed
+  field: industrial-ai
+  topics:
+  - video
+  - geospatial
+  - mining
+  - mobile-apps
+- level: bsc
+  name: M. López
+  title: Desarrollo y evaluación de un sistema de identificación de notas sobre interpretaciones de piano.
+  degree: GITST
+  year: 2024
+  status: completed
+  field: audio-speech
+  topics:
+  - music-information
+  - audio-processing
+  - signal-processing
+- level: bsc
+  name: E. Siguero
+  title: Desarrollo y evaluación de un esquema para la musicalización de cómics y novelas gráficas basado en representaciones multimodales.
+  degree: GITST
+  year: 2024
+  status: completed
+  field: multimodal-vision
+  topics:
+  - multimodal-learning
+  - audio-synthesis
+  - generative-modeling
+- level: bsc
+  name: A. Pizarroso
+  title: Desarrollo y evaluación de un sistema para la monitorización de ocupación y control ambiental integrando LoRaWAN e Inteligencia Artificial.
+  degree: GITST
+  year: 2025
+  status: completed
+  field: communications-sensing
+  topics:
+  - lorawan
+  - iot
+  - machine-learning
+- level: bsc
+  name: Á. Tenorio
+  title: Desarrollo de un sistema de adquisición de registros y generación de alarmas guiado por Inteligencia Artificial.
+  degree: GITST
+  year: 2025
+  status: completed
+  field: data-intelligent
+  topics:
+  - machine-learning
+  - signal-processing
+- level: bsc
+  name: S. Cucart
+  title: Desarrollo y evaluación de un sistema de continuación de melodías basado en modelos generativos.
+  degree: GITST
+  year: 2025
+  status: completed
+  field: audio-speech
+  topics:
+  - generative-modeling
+  - music-information
+  - audio-synthesis
+- level: bsc
+  name: A. Balda
+  title: Implementación de aplicación web para el procesado de audios interactivo
+  degree: GITST
+  year: 2025
+  status: completed
+  field: audio-speech
+  topics:
+  - audio-processing
+  - web-systems
+- level: bsc
+  name: D. Romero
+  title: Desarrollo y evaluación de síntesis de voz basado en inteligencia artificial
+  degree: GITST
+  year: 2025
+  status: completed
+  field: audio-speech
+  topics:
+  - speech-synthesis
+  - generative-modeling
+  - deep-learning
+- level: bsc
+  name: A. Velasco
+  title: Desarrollo y evaluación de un sistema de generación de resúmenes de vídeo empleando modelos multimodales
+  degree: GISD
+  year: 2025
+  status: completed
+  field: multimodal-vision
+  topics:
+  - video
+  - multimodal-learning
+  - generative-modeling
+- level: bsc
+  name: A. Blas
+  title: Implementación y comparación de esquemas profundos para la detección de anomalías en sonido
+  degree: GISD
+  year: 2025
+  status: completed
+  field: audio-speech
+  topics:
+  - anomaly-detection
+  - deep-learning
+  - audio-processing
+- level: bsc
+  name: D. Vázquez
+  title: Desarrollo y evaluación de un sistema de detección de anomalías en vibraciones acústicas y mecánicas
+  degree: GISD
+  year: 2025
+  status: completed
+  field: signal-modeling
+  topics:
+  - anomaly-detection
+  - signal-processing
+  - machine-learning
+- level: bsc
+  name: M. Alonso
+  title: Auralización 3D
+  degree: GITST
+  year: null
+  status: ongoing
+  field: audio-speech
+  topics:
+  - auralization
+  - audio-processing
+- level: bsc
+  name: D. Castro
+  title: Optimización de grandes arrays de antenas para una transmisión eficiente.
+  degree: GITST
+  year: null
+  status: ongoing
+  field: communications-sensing
+  topics:
+  - antenna-arrays
+  - beamforming
+  - communications
+- level: bsc
+  name: M. Montserrat
+  title: null
+  degree: GITST
+  year: null
+  status: ongoing
+  field: null
+  topics: []
+  note: Title is not specified in the current CV.
+- level: bsc
+  name: P. Ayuso
+  title: null
+  degree: GITST
+  year: null
+  status: ongoing
+  field: null
+  topics: []
+  note: Title is not specified in the current CV.
+- level: bsc
+  name: J. Diaz-Andreu
+  title: null
+  degree: GITST
+  year: null
+  status: ongoing
+  field: null
+  topics: []
+  note: Title is not specified in the current CV.
+- level: bsc
+  name: M. Montalvo
+  title: null
+  degree: GITST
+  year: null
+  status: ongoing
+  field: null
+  topics: []
+  note: Title is not specified in the current CV.
+- level: bsc
+  name: A. Moreno
+  title: null
+  degree: GITST
+  year: null
+  status: ongoing
+  field: null
+  topics: []
+  note: Title is not specified in the current CV.
+- level: bsc
+  name: C. Fernández
+  title: null
+  degree: GITST
+  year: null
+  status: ongoing
+  field: null
+  topics: []
+  note: Title is not specified in the current CV.
+- level: bsc
+  name: D. Rivero
+  title: Desarrollo de un sistema automático de trading cuantitativo con control adaptativo del riesgo.
+  degree: GISD
+  year: null
+  status: ongoing
+  field: data-intelligent
+  topics:
+  - quantitative-finance
+  - machine-learning
+- level: bsc
+  name: A. Tapia
+  title: Desarrollo y evaluación de una herramienta automática de segmentación visual levemente supervisada para el análisis del juego.
+  degree: GISD
+  year: null
+  status: ongoing
+  field: multimodal-vision
+  topics:
+  - computer-vision
+  - machine-learning
+- level: bsc
+  name: J. Martínez
+  title: Desarrollo y evaluación de un segmentador automático levemente supervisado para imágenes de microscopía
+  degree: GISD
+  year: null
+  status: ongoing
+  field: biomedical
+  topics:
+  - computer-vision
+  - biomedical-imaging
+  - machine-learning
+open_topics:
+- title: Audio & Speech
+  text: Generative and model-based audio, speech synthesis, voice analysis, physical sound-production models and related inverse problems.
+- title: System Modeling & Inverse Problems
+  text: Identification, inversion and analysis-by-synthesis for nonlinear or physically motivated signal-generating systems.
+- title: Advanced Communications
+  text: Beamforming, radar, RF systems, large-scale antenna arrays and signal-processing methods for communications.
+- title: Applied Signal Processing & Machine Learning
+  text: Applied projects in biomedical, industrial and multimodal systems where signal-processing methods can be evaluated on real data.

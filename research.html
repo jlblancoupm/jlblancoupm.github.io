@@ -1,0 +1,76 @@
+---
+layout: default
+title: Research
+section: research
+permalink: /research/
+---
+<h1>Research</h1>
+<p class="lede">My research has two complementary sides: the methods and systems I work on, and the projects, funding and transfer activities where those ideas are developed and applied.</p>
+
+<section class="section">
+<h2>Research directions</h2>
+<div class="three-col">
+{% for d in site.data.research.directions %}
+  <article class="clean-card">
+    <h3>{{ d.title }}</h3>
+    <p>{{ d.summary }}</p>
+  </article>
+{% endfor %}
+</div>
+
+{% for d in site.data.research.directions %}
+<div class="project-block" id="{{ d.id }}">
+  <h3>{{ d.title }}</h3>
+  <p>{{ d.summary }}</p>
+  <p class="meta">{{ d.topics | join: " · " }}</p>
+  {% for ex in d.examples %}
+  <div class="project-item">
+    <div class="entry-title">{{ ex.title }}</div>
+    <p class="subtle">{{ ex.text }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
+<p class="badge-line">Applications: {{ site.data.research.applications | join: " · " }}</p>
+</section>
+
+<section class="section">
+<h2>Projects, Funding &amp; Transfer</h2>
+
+<h3>Competitive Research</h3>
+{% for p in site.data.projects.competitive_current %}
+<div class="project-item">
+  <h3>{{ p.title }}</h3>
+  <div class="meta">{{ p.years }} · {{ p.funder }}{% if p.role %} · {{ p.role }}{% endif %}</div>
+  <p>{{ p.summary }}</p>
+</div>
+{% endfor %}
+
+<h3>Selected previous projects</h3>
+{% for p in site.data.projects.competitive_previous %}
+<div class="project-item">
+  <h3>{{ p.title }}</h3>
+  <div class="meta">{{ p.years }} · {{ p.funder }}</div>
+  <p>{{ p.summary }}</p>
+</div>
+{% endfor %}
+
+<h3>Industry-funded R&amp;D</h3>
+{% for p in site.data.projects.industry_rd %}
+<div class="project-item">
+  <h3>{{ p.title }}</h3>
+  <div class="meta">{{ p.organization }} · {{ p.years }}{% if p.role %} · {{ p.role }}{% endif %}</div>
+  <p>{{ p.summary }}</p>
+</div>
+{% endfor %}
+
+<h3>Transfer &amp; Innovation</h3>
+{% for p in site.data.projects.transfer %}
+<div class="project-item">
+  <h3>{{ p.title }}</h3>
+  <div class="meta">{{ p.years }} · {{ p.kind }}</div>
+  <p>{{ p.summary }}</p>
+  {% if p.highlights %}<div class="badge-line">{{ p.highlights | join: " · " }}</div>{% endif %}
+</div>
+{% endfor %}
+</section>

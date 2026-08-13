@@ -1,0 +1,93 @@
+---
+layout: default
+title: Supervision
+section: supervision
+permalink: /supervision/
+---
+<h1>Supervision</h1>
+<p class="lede">PhD, MSc and BSc supervision across signal processing, audio and speech, communications, machine learning and applied systems.</p>
+
+{% assign phd_completed = site.data.supervision.records | where: "level", "phd" | where: "status", "completed" %}
+{% assign phd_ongoing = site.data.supervision.records | where: "level", "phd" | where: "status", "ongoing" %}
+{% assign msc_completed = site.data.supervision.records | where: "level", "msc" | where: "status", "completed" %}
+{% assign bsc_completed = site.data.supervision.records | where: "level", "bsc" | where: "status", "completed" %}
+
+<div class="supervision-overview">
+  <span><strong>{{ phd_completed | size }}</strong> completed PhD</span>
+  <span><strong>{{ phd_ongoing | size }}</strong> ongoing PhD</span>
+  <span><strong>{{ msc_completed | size }}</strong> MSc</span>
+  <span><strong>{{ bsc_completed | size }}</strong> BSc</span>
+</div>
+
+<section class="section supervision-catalogue">
+<h2>Theses &amp; final projects</h2>
+<div class="sup-tabs" role="tablist" aria-label="Supervision level">
+  <button class="sup-tab is-active" type="button" data-level="phd">PhD</button>
+  <button class="sup-tab" type="button" data-level="msc">MSc</button>
+  <button class="sup-tab" type="button" data-level="bsc">BSc</button>
+</div>
+<div class="sup-toolbar">
+  <input id="supSearch" type="search" placeholder="Search title or topic…">
+  <select id="supDegree"><option value="">All degrees</option></select>
+  <select id="supYear"><option value="">All years</option></select>
+  <select id="supField"><option value="">All research fields</option>{% for f in site.data.supervision.fields %}<option value="{{ f.id }}">{{ f.label }}</option>{% endfor %}</select>
+  <select id="supStatus"><option value="">All status</option><option value="completed">Completed</option><option value="ongoing">Ongoing</option></select>
+  <button type="button" class="more-filter-button" id="supMoreButton" aria-expanded="false">More filters ▾</button>
+</div>
+<div class="sup-more hidden" id="supMore">
+  <label for="supTopic">Topic / method</label>
+  <select id="supTopic"><option value="">All topics</option>{% for item in site.data.supervision.topic_labels %}<option value="{{ item[0] }}">{{ item[1] }}</option>{% endfor %}</select>
+</div>
+<p class="sup-result-count" id="supResultCount"></p>
+<div class="sup-list" id="supList">
+{% for r in site.data.supervision.records %}
+{% assign field_obj = site.data.supervision.fields | where: "id", r.field | first %}
+<article class="sup-item" data-level="{{ r.level }}" data-degree="{{ r.degree | escape }}" data-year="{% if r.year %}{{ r.year }}{% endif %}" data-field="{{ r.field }}" data-status="{{ r.status }}" data-topics="{{ r.topics | join: ' ' }}" data-search="{{ r.title | default: '' | downcase | escape }} {{ r.name | downcase | escape }} {{ r.degree | downcase | escape }} {% for topic in r.topics %}{{ site.data.supervision.topic_labels[topic] | downcase }} {% endfor %}">
+  <div class="sup-kind">{% if r.level == "phd" %}PhD{% elsif r.level == "msc" %}MSc{% else %}BSc{% endif %} · {{ r.status | capitalize }}{% if r.year %} · {% if r.status == "ongoing" %}expected {% endif %}{{ r.year }}{% endif %}</div>
+  <h3>{% if r.title %}{{ r.title }}{% else %}<span class="untitled">Title not specified in current CV</span>{% endif %}</h3>
+  <div class="sup-meta">{{ r.name }} · {{ r.degree }}</div>
+  {% if field_obj %}<div class="sup-field">{{ field_obj.label }}</div>{% endif %}
+  {% if r.topics and r.topics.size > 0 %}<div class="sup-topics">{% for topic in r.topics %}<span>{{ site.data.supervision.topic_labels[topic] }}</span>{% unless forloop.last %}<b>·</b>{% endunless %}{% endfor %}</div>{% endif %}
+  {% if r.note %}<div class="sup-note">{{ r.note }}</div>{% endif %}
+  {% if r.url %}<div class="sup-links"><a href="{{ r.url }}" target="_blank" rel="noopener">Open record ↗</a></div>{% endif %}
+</article>
+{% endfor %}
+</div>
+</section>
+
+<section class="section"><h2>Selected topics open to new students</h2>{% for t in site.data.supervision.open_topics %}<div class="project-item"><h3>{{ t.title }}</h3><p>{{ t.text }}</p></div>{% endfor %}</section>
+
+<section class="section" id="student-enquiry">
+<h2>Interested in working with us?</h2>
+<p>Use this form for supervision enquiries. Please provide an <strong>updated CV</strong>, your <strong>academic transcript / marks</strong>, and a short <strong>motivation letter</strong>. Your documents are submitted directly through the form; no email address is exposed on this website.</p>
+<div class="form-status form-success" data-fs-success>{{ site.data.contact.success_message }}</div><div class="form-status form-error" data-fs-error></div>
+<form class="prospect-form" id="supervision-form" enctype="multipart/form-data">
+  <div class="form-grid">
+    <label>Name<input name="name" type="text" required data-fs-field autocomplete="name"><span class="field-error" data-fs-error="name"></span></label>
+    <label>Email<input name="email" type="email" required data-fs-field autocomplete="email"><span class="field-error" data-fs-error="email"></span></label>
+    <label>Degree / programme<select name="programme" required data-fs-field><option value="">Select one</option><option>BSc / TFG</option><option>MSc / TFM</option><option>PhD</option></select><span class="field-error" data-fs-error="programme"></span></label>
+    <label>Topic of interest<input name="topic" type="text" required data-fs-field><span class="field-error" data-fs-error="topic"></span></label>
+  </div>
+  <label>Short message<textarea name="message" required data-fs-field placeholder="Briefly describe what you would like to work on and why."></textarea><span class="field-error" data-fs-error="message"></span></label>
+  <div class="form-files">
+    <label>Updated CV<input name="cv" type="file" accept=".pdf,.doc,.docx" required data-fs-field><span class="field-help">PDF or Word document.</span><span class="field-error" data-fs-error="cv"></span></label>
+    <label>Academic transcript / marks<input name="transcript" type="file" accept=".pdf,.doc,.docx" required data-fs-field><span class="field-help">Official or downloadable academic record is fine.</span><span class="field-error" data-fs-error="transcript"></span></label>
+    <label>Motivation letter<input name="motivation_letter" type="file" accept=".pdf,.doc,.docx" required data-fs-field><span class="field-help">A short letter is sufficient.</span><span class="field-error" data-fs-error="motivation_letter"></span></label>
+  </div>
+  <input type="hidden" name="source" value="jlblancoupm.github.io supervision"><button type="submit" data-fs-submit-btn>Send enquiry</button>
+  <p class="privacy-note">The form is processed by Formspree. Your contact details and uploaded documents are not stored in this GitHub repository.</p>
+</form>
+{% if site.data.contact.form_id == "REPLACE_WITH_FORMSPREE_FORM_ID" %}<div class="note">Site owner setup required: replace <code>REPLACE_WITH_FORMSPREE_FORM_ID</code> in <code>_data/contact.yml</code> before publishing this form.</div>{% endif %}
+<script>
+(function(){
+ const tabs=[...document.querySelectorAll('.sup-tab')],items=[...document.querySelectorAll('.sup-item')];
+ const search=document.getElementById('supSearch'),degree=document.getElementById('supDegree'),year=document.getElementById('supYear'),field=document.getElementById('supField'),status=document.getElementById('supStatus'),topic=document.getElementById('supTopic'),count=document.getElementById('supResultCount'),more=document.getElementById('supMore'),moreButton=document.getElementById('supMoreButton');
+ let level='phd';
+ function optionsForLevel(){const c=items.filter(x=>x.dataset.level===level);const ds=[...new Set(c.map(x=>x.dataset.degree).filter(Boolean))].sort();const ys=[...new Set(c.map(x=>x.dataset.year).filter(Boolean))].sort((a,b)=>Number(b)-Number(a));degree.innerHTML='<option value="">All degrees</option>';ds.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;degree.appendChild(o)});year.innerHTML='<option value="">All years</option>';ys.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;year.appendChild(o)});}
+ function apply(){const q=search.value.toLowerCase().trim(),d=degree.value,y=year.value,f=field.value,s=status.value,t=topic.value;let visible=0;items.forEach(el=>{const ok=el.dataset.level===level&&(!q||(el.dataset.search||'').includes(q))&&(!d||el.dataset.degree===d)&&(!y||el.dataset.year===y)&&(!f||el.dataset.field===f)&&(!s||el.dataset.status===s)&&(!t||(el.dataset.topics||'').split(' ').includes(t));el.classList.toggle('hidden',!ok);if(ok)visible++});count.textContent=visible+' record'+(visible===1?'':'s');}
+ tabs.forEach(btn=>btn.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('is-active'));btn.classList.add('is-active');level=btn.dataset.level;search.value='';field.value='';status.value='';topic.value='';optionsForLevel();apply()}));
+ [search,degree,year,field,status,topic].forEach(el=>el.addEventListener('input',apply));moreButton.addEventListener('click',()=>{const h=more.classList.toggle('hidden');moreButton.setAttribute('aria-expanded',String(!h));moreButton.textContent=h?'More filters ▾':'More filters ▴'});optionsForLevel();apply();
+})();
+window.formspree=window.formspree||function(){(formspree.q=formspree.q||[]).push(arguments)};formspree('initForm',{formElement:'#supervision-form',formId:'{{ site.data.contact.form_id }}'});
+</script><script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</section>

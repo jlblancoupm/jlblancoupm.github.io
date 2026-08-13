@@ -1,0 +1,13 @@
+title: José Luis Blanco Murillo
+description: Signal processing, system modeling, machine learning, applied research and technology transfer.
+url: "https://jlblancoupm.github.io"
+baseurl: ""
+markdown: kramdown
+permalink: pretty
+exclude:
+  - README.md
+  - REPO_SETUP.md
+  - SECURITY.md
+  - UPDATE_WORKFLOW.md
+  - PUBLICATION_REVIEW.md
+  - Gemfile
