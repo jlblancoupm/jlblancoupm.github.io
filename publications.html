@@ -3,19 +3,171 @@ layout: default
 title: Publications
 permalink: /publications/
 ---
-<div class="kicker">Publications</div>
-<h1>Selected journal publications.</h1>
-<p class="page-intro">The first version is intentionally conservative and uses only publications already listed in the reviewed July 2026 CV. Automatic discovery will be added later, with manual approval before anything reaches this page.</p>
+{% assign total = site.data.publications.items | size %}
+{% assign journals = site.data.publications.items | where: "type", "Journal" | size %}
+{% assign q1 = site.data.publications.items | where: "rank", "Q1" | size %}
+{% assign latest = site.data.publications.items | first %}
 
+<div class="kicker">Publications</div>
+<h1>Publications.</h1>
+<p class="page-intro">Browse the publications currently included in this public profile. New records are added only after manual review and approval.</p>
+
+<div class="pub-metrics" aria-label="Publication summary">
+  <div class="pub-metric"><span>{{ total }}</span><small>Listed</small></div>
+  <div class="pub-metric"><span>{{ journals }}</span><small>Journal articles</small></div>
+  <div class="pub-metric"><span>{{ q1 }}</span><small>Q1 tagged</small></div>
+  <div class="pub-metric"><span>{{ latest.year }}</span><small>Latest year</small></div>
+</div>
+
+<div class="pub-tools">
+  <label class="pub-search">
+    <span class="sr-only">Search publications</span>
+    <input id="pub-search" type="search" placeholder="Search title, author or venue…" autocomplete="off">
+  </label>
+  <div id="pub-filter-year" class="pub-filter" data-label="Year"></div>
+  <div id="pub-filter-type" class="pub-filter" data-label="Type"></div>
+  <div id="pub-filter-rank" class="pub-filter" data-label="Rank"></div>
+  <div id="pub-filter-method" class="pub-filter" data-label="Method"></div>
+  <div id="pub-filter-system" class="pub-filter" data-label="System"></div>
+  <div id="pub-filter-application" class="pub-filter" data-label="Area"></div>
+</div>
+
+<div class="pub-results-line"><strong id="pub-count">{{ total }}</strong> publications</div>
+
+<div id="publication-list" class="publication-list">
 {% assign current_year = nil %}
 {% for pub in site.data.publications.items %}
   {% if pub.year != current_year %}
-    <div class="pub-year">{{ pub.year }}</div>
+    <div class="publication-year" data-year-heading="{{ pub.year }}">{{ pub.year }}</div>
     {% assign current_year = pub.year %}
   {% endif %}
-  <article class="pub">
-    <div class="pub-title">{{ pub.title }}</div>
-    <div class="pub-venue">{{ pub.venue }}</div>
-    <a href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI ↗</a>
+
+  {% capture taxonomy_search %}
+    {% for id in pub.methods %} {{ site.data.taxonomy.methods[id] }}{% endfor %}
+    {% for id in pub.systems %} {{ site.data.taxonomy.systems[id] }}{% endfor %}
+    {% for id in pub.applications %} {{ site.data.taxonomy.applications[id] }}{% endfor %}
+  {% endcapture %}
+
+  <article class="publication-entry"
+           data-year="{{ pub.year }}"
+           data-type="{{ pub.type | default: 'Other' }}"
+           data-rank="{{ pub.rank | default: '' }}"
+           data-methods="{{ pub.methods | join: '|' }}"
+           data-systems="{{ pub.systems | join: '|' }}"
+           data-applications="{{ pub.applications | join: '|' }}"
+           data-search="{{ pub.title | append: ' ' | append: pub.authors | append: ' ' | append: pub.venue | append: ' ' | append: taxonomy_search | downcase | escape }}">
+    <div class="publication-badges">
+      <span>{{ pub.type | default: 'Publication' }}</span>
+      {% if pub.rank %}<span class="publication-rank">{{ pub.rank }}</span>{% endif %}
+    </div>
+    <h2 class="publication-title">{{ pub.title }}</h2>
+    <div class="publication-authors">{{ pub.authors }}</div>
+    <div class="publication-venue">{{ pub.venue }}</div>
+
+    <div class="publication-taxonomy">
+      {% for id in pub.methods %}<span class="tax-method">{{ site.data.taxonomy.methods[id] }}</span>{% endfor %}
+      {% for id in pub.systems %}<span class="tax-system">{{ site.data.taxonomy.systems[id] }}</span>{% endfor %}
+      {% for id in pub.applications %}<span class="tax-application">{{ site.data.taxonomy.applications[id] }}</span>{% endfor %}
+    </div>
+
+    <div class="publication-links">
+      {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+      {% if pub.pdf %}<a href="{{ pub.pdf }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+      {% if pub.code %}<a href="{{ pub.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+      {% if pub.demo %}<a href="{{ pub.demo }}" target="_blank" rel="noopener">Demo</a>{% endif %}
+      <a href="https://scholar.google.com/scholar?q={{ pub.title | url_encode }}" target="_blank" rel="noopener">Scholar</a>
+    </div>
   </article>
 {% endfor %}
+</div>
+
+<div id="pub-empty" class="pub-empty" hidden>No publications match these filters.</div>
+
+<script>
+(function () {
+  const entries = [...document.querySelectorAll('.publication-entry')];
+  const search = document.getElementById('pub-search');
+  const count = document.getElementById('pub-count');
+  const empty = document.getElementById('pub-empty');
+  const state = { year: 'All', type: 'All', rank: 'All', method: 'All', system: 'All', application: 'All' };
+
+  const labels = {
+    method: {{ site.data.taxonomy.methods | jsonify }},
+    system: {{ site.data.taxonomy.systems | jsonify }},
+    application: {{ site.data.taxonomy.applications | jsonify }}
+  };
+
+  function listValues(key) {
+    if (key === 'method' || key === 'system' || key === 'application') {
+      const datasetKey = key === 'method' ? 'methods' : key === 'system' ? 'systems' : 'applications';
+      const ids = entries.flatMap(e => (e.dataset[datasetKey] || '').split('|').filter(Boolean));
+      return [...new Set(ids)].sort((a,b) => (labels[key][a] || a).localeCompare(labels[key][b] || b));
+    }
+    return [...new Set(entries.map(e => e.dataset[key]).filter(Boolean))]
+      .sort((a,b) => key === 'year' ? Number(b) - Number(a) : a.localeCompare(b));
+  }
+
+  function displayValue(key, value) {
+    return labels[key] ? (labels[key][value] || value) : value;
+  }
+
+  function buildFilter(id, key) {
+    const root = document.getElementById(id);
+    const values = listValues(key);
+    if (values.length < 2) { root.hidden = true; return; }
+    const label = document.createElement('span');
+    label.className = 'pub-filter-label';
+    label.textContent = root.dataset.label;
+    root.appendChild(label);
+    ['All', ...values].forEach(value => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = value === 'All' ? 'All' : displayValue(key, value);
+      button.className = value === 'All' ? 'active' : '';
+      button.addEventListener('click', () => {
+        state[key] = value;
+        root.querySelectorAll('button').forEach(b => b.classList.toggle('active', b === button));
+        apply();
+      });
+      root.appendChild(button);
+    });
+  }
+
+  function containsPipeValue(raw, value) {
+    return (raw || '').split('|').includes(value);
+  }
+
+  function apply() {
+    const q = search.value.trim().toLowerCase();
+    let visible = 0;
+    entries.forEach(entry => {
+      const ok = (!q || entry.dataset.search.includes(q)) &&
+                 (state.year === 'All' || entry.dataset.year === state.year) &&
+                 (state.type === 'All' || entry.dataset.type === state.type) &&
+                 (state.rank === 'All' || entry.dataset.rank === state.rank) &&
+                 (state.method === 'All' || containsPipeValue(entry.dataset.methods, state.method)) &&
+                 (state.system === 'All' || containsPipeValue(entry.dataset.systems, state.system)) &&
+                 (state.application === 'All' || containsPipeValue(entry.dataset.applications, state.application));
+      entry.hidden = !ok;
+      if (ok) visible++;
+    });
+
+    document.querySelectorAll('[data-year-heading]').forEach(heading => {
+      const year = heading.dataset.yearHeading;
+      heading.hidden = !entries.some(e => e.dataset.year === year && !e.hidden);
+    });
+
+    count.textContent = visible;
+    empty.hidden = visible !== 0;
+  }
+
+  buildFilter('pub-filter-year', 'year');
+  buildFilter('pub-filter-type', 'type');
+  buildFilter('pub-filter-rank', 'rank');
+  buildFilter('pub-filter-method', 'method');
+  buildFilter('pub-filter-system', 'system');
+  buildFilter('pub-filter-application', 'application');
+  search.addEventListener('input', apply);
+  apply();
+})();
+</script>
