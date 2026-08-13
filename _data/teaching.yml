@@ -1,0 +1,22 @@
+courses:
+- title: Tratamiento Digital de Voz y Audio
+  institution: Universidad Politécnica de Madrid
+  role: Coordinator / Lecturer
+  summary: Digital processing of speech and audio signals, including analysis, modeling
+    and practical implementation.
+- title: Probabilidad y Señales Aleatorias
+  institution: Universidad Politécnica de Madrid
+  role: Coordinator / Lecturer
+  summary: Probability, random variables, random processes and their use in signal
+    and data analysis.
+- title: Principios de Ingeniería de Telecomunicación
+  institution: Universidad Politécnica de Madrid
+  role: Lecturer
+  summary: Foundational concepts and engineering principles across telecommunications
+    systems.
+selected_activities:
+- Postgraduate teaching in RADAR and industry-oriented programmes.
+- MOOCs in neuroscience, mining digitalization, quantitative trading and scientific
+  AI tools.
+- ROBOTRADER educational innovation initiative.
+- Doctoral seminars on static nonlinear systems.

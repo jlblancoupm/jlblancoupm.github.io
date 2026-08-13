@@ -1,0 +1,107 @@
+---
+layout: default
+title: Publications
+section: publications
+permalink: /publications/
+---
+<h1>Publications</h1>
+<p class="lede">{{ site.data.publications.journals | size }} journal articles · {{ site.data.publications.conferences | size }} conference contributions</p>
+
+<div class="pub-tabs">
+  <button class="pub-tab is-active" data-kind="journal">Journal articles</button>
+  <button class="pub-tab" data-kind="conference">Conference contributions</button>
+</div>
+
+<div class="pub-toolbar">
+  <input id="pubSearch" type="search" placeholder="Search title, author or venue…">
+  <select id="pubYear"><option value="">All years</option></select>
+  <select id="pubArea"><option value="">All research areas</option>
+    <option value="audio-speech">Audio & Speech</option>
+    <option value="communications">Communications</option>
+    <option value="biomedical">Biomedical</option>
+    <option value="industrial">Industrial</option>
+    <option value="multimodal">Multimodal</option>
+    <option value="measurement">Measurement</option>
+  </select>
+</div>
+
+<div id="journalList" class="pub-list">
+{% assign journal_years = site.data.publications.journals | group_by: "year" | sort: "name" | reverse %}
+{% for group in journal_years %}
+<h2 class="pub-year">{{ group.name }}</h2>
+{% for p in group.items %}
+<article class="pub-item" data-kind="journal" data-year="{{ p.year }}" data-area="{{ p.applications | join: ' ' }}" data-search="{{ p.title | downcase }} {{ p.authors | downcase }} {{ p.venue | downcase }}">
+  <div class="entry-title">{{ p.title }}</div>
+  <div class="authors">{{ p.authors }}</div>
+  <div class="venue"><em>{{ p.venue }}</em>{% if p.rank %} · {{ p.rank }}{% endif %}</div>
+  <div class="links">{% if p.doi and p.doi != "" %}<a href="https://doi.org/{{ p.doi }}">DOI</a>{% endif %}</div>
+  <div class="pub-tax">{{ p.methods | join: " · " }}{% if p.systems %} · {{ p.systems | join: " · " }}{% endif %}</div>
+</article>
+{% endfor %}
+{% endfor %}
+</div>
+
+<div id="conferenceList" class="pub-list hidden">
+{% assign conf_years = site.data.publications.conferences | group_by: "year" | sort: "name" | reverse %}
+{% for group in conf_years %}
+<h2 class="pub-year">{{ group.name }}</h2>
+{% for p in group.items %}
+{% assign venue = site.data.conferences | where: "id", p.conference_id | first %}
+<article class="pub-item" data-kind="conference" data-year="{{ p.year }}" data-area="{{ p.applications | join: ' ' }}" data-venue="{{ p.conference_id }}" data-search="{{ p.title | downcase }} {{ p.authors | downcase }} {{ venue.short | downcase }} {{ venue.name | downcase }}">
+  <div class="entry-title">{{ p.title }}</div>
+  <div class="authors">{{ p.authors }}</div>
+  <div class="venue"><em>{{ venue.short }}</em> · {{ p.presentation }}</div>
+  <div class="links">{% if p.doi %}<a href="https://doi.org/{{ p.doi }}">DOI</a>{% endif %}</div>
+  <div class="pub-tax">{{ p.methods | join: " · " }}{% if p.systems %} · {{ p.systems | join: " · " }}{% endif %}</div>
+</article>
+{% endfor %}
+{% endfor %}
+</div>
+
+<section class="section" id="conferenceVenues">
+<h2>Conference venues</h2>
+<div class="venue-list">
+{% for c in site.data.conferences %}
+{% assign count = 0 %}
+{% for p in site.data.publications.conferences %}{% if p.conference_id == c.id %}{% assign count = count | plus: 1 %}{% endif %}{% endfor %}
+{% if count > 0 %}<div class="venue-item"><a href="#" class="venue-filter" data-venue="{{ c.id }}">{{ c.short }}</a> <span class="meta">({{ count }})</span></div>{% endif %}
+{% endfor %}
+</div>
+</section>
+
+<script>
+(function(){
+ const tabs=[...document.querySelectorAll('.pub-tab')];
+ const search=document.getElementById('pubSearch'), year=document.getElementById('pubYear'), area=document.getElementById('pubArea');
+ const journal=document.getElementById('journalList'), conf=document.getElementById('conferenceList');
+ let kind='journal', venue='';
+ const all=[...document.querySelectorAll('.pub-item')];
+ const years=[...new Set(all.map(x=>x.dataset.year))].sort((a,b)=>b-a);
+ years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;year.appendChild(o);});
+ function apply(){
+   const q=search.value.toLowerCase().trim(), y=year.value, a=area.value;
+   journal.classList.toggle('hidden',kind!=='journal');
+   conf.classList.toggle('hidden',kind!=='conference');
+   all.forEach(el=>{
+     const okKind=el.dataset.kind===kind;
+     const okQ=!q || el.dataset.search.includes(q);
+     const okY=!y || el.dataset.year===y;
+     const okA=!a || (el.dataset.area||'').split(' ').includes(a);
+     const okV=!venue || el.dataset.venue===venue;
+     el.classList.toggle('hidden',!(okKind&&okQ&&okY&&okA&&okV));
+   });
+   document.querySelectorAll('.pub-year').forEach(h=>{
+     let n=h.nextElementSibling, any=false;
+     while(n && !n.classList.contains('pub-year')){
+       if(n.classList.contains('pub-item')&&!n.classList.contains('hidden')) any=true;
+       n=n.nextElementSibling;
+     }
+     h.classList.toggle('hidden',!any);
+   });
+ }
+ tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('is-active'));t.classList.add('is-active');kind=t.dataset.kind;venue='';apply();}));
+ [search,year,area].forEach(x=>x.addEventListener('input',()=>{venue='';apply();}));
+ document.querySelectorAll('.venue-filter').forEach(v=>v.addEventListener('click',e=>{e.preventDefault();kind='conference';venue=v.dataset.venue;tabs.forEach(x=>x.classList.toggle('is-active',x.dataset.kind==='conference'));apply();window.scrollTo({top:document.querySelector('.pub-tabs').offsetTop-80,behavior:'smooth'});}));
+ apply();
+})();
+</script>
