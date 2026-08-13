@@ -1,0 +1,17 @@
+intro: Supervision is a core part of my research activity, with student work integrated into research lines, projects, experimental validation and open research software whenever appropriate.
+metrics:
+  - value: "3"
+    label: completed PhD theses
+  - value: "5"
+    label: current PhD candidates
+  - value: "30+"
+    label: MSc theses supervised
+  - value: "60+"
+    label: final projects supervised
+sections:
+  - title: Doctoral supervision
+    text: Completed doctoral work has covered speech technologies, radiofrequency characterization and generative models for audio. Current doctoral supervision extends these lines into signal processing, machine learning and multimodal systems.
+  - title: MSc & BSc supervision
+    text: Master's and Bachelor's projects are used as focused engineering and research units, commonly connected to ongoing GAPS research, experimental platforms, datasets, software or industry-facing problems.
+  - title: Research progression
+    text: Selected student projects are designed to progress from reproducible engineering work to research contributions, publications, reusable code or subsequent doctoral work when the scope supports it.

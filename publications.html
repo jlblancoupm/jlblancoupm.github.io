@@ -1,0 +1,21 @@
+---
+layout: default
+title: Publications
+permalink: /publications/
+---
+<div class="kicker">Publications</div>
+<h1>Selected journal publications.</h1>
+<p class="page-intro">The first version is intentionally conservative and uses only publications already listed in the reviewed July 2026 CV. Automatic discovery will be added later, with manual approval before anything reaches this page.</p>
+
+{% assign current_year = nil %}
+{% for pub in site.data.publications.items %}
+  {% if pub.year != current_year %}
+    <div class="pub-year">{{ pub.year }}</div>
+    {% assign current_year = pub.year %}
+  {% endif %}
+  <article class="pub">
+    <div class="pub-title">{{ pub.title }}</div>
+    <div class="pub-venue">{{ pub.venue }}</div>
+    <a href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI ↗</a>
+  </article>
+{% endfor %}

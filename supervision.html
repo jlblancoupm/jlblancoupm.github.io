@@ -1,0 +1,23 @@
+---
+layout: default
+title: Supervision
+permalink: /supervision/
+---
+<div class="kicker">Supervision</div>
+<h1>Research supervision as part of the research process.</h1>
+<p class="page-intro">{{ site.data.supervision.intro }}</p>
+
+<div class="metrics">
+{% for metric in site.data.supervision.metrics %}
+  <div class="metric"><div class="metric-value">{{ metric.value }}</div><div class="metric-label">{{ metric.label }}</div></div>
+{% endfor %}
+</div>
+
+{% for section in site.data.supervision.sections %}
+<section class="item">
+  <h3>{{ section.title }}</h3>
+  <p>{{ section.text }}</p>
+</section>
+{% endfor %}
+
+<div class="notice">Individual PhD, MSc and BSc records are intentionally not included in this first draft. They will be added only from reviewed sources and after explicit approval.</div>

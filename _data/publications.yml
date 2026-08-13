@@ -1,0 +1,49 @@
+items:
+  - year: 2025
+    title: "Neural Audio Synthesis for Sound Effects: A Scope Review"
+    venue: IEEE/ACM Transactions on Audio, Speech, and Language Processing
+    doi: 10.1109/TASLPRO.2025.3646080
+  - year: 2025
+    title: "Enabling Scalable and Manufacturable Large-Scale Antenna Arrays Through Hexagonal Subarray Implementation over Goldberg Polyhedra"
+    venue: Electronics
+    doi: 10.3390/electronics14234618
+  - year: 2025
+    title: "Side Effects of Triangular-Grid Geometry and Orientation in Hierarchical Regular Subarray-Based Large-Scale Digital Antenna Arrays"
+    venue: Electronics
+    doi: 10.3390/electronics14173505
+  - year: 2025
+    title: "Parameter Optimization for a Physical Model of the Vocal System"
+    venue: EURASIP Journal on Audio, Speech, and Music Processing
+    doi: 10.1186/s13636-025-00414-5
+  - year: 2023
+    title: "Low-intensity continuous ultrasound to inhibit cancer cell migration"
+    venue: Frontiers in Cell and Developmental Biology
+    doi: 10.3389/fcell.2022.842965
+  - year: 2022
+    title: "A model-informed, single-input method for amplifiers assessment from pruned Volterra kernels collapsed projection"
+    venue: Measurement
+    doi: 10.1016/j.measurement.2022.110856
+  - year: 2022
+    title: "Phase-Aware Transformations in Variational Autoencoders for Audio Effects"
+    venue: Journal of the Audio Engineering Society
+    doi: 10.17743/jaes.2022.0042
+  - year: 2022
+    title: "Expanding the Frontiers of Web Audio with Autoencoders and JavaScript"
+    venue: Journal of the Audio Engineering Society
+    doi: 10.17743/jaes.2022.0046
+  - year: 2021
+    title: "Nonintrusive honey fraud detection and quantification based on differential radiofrequency absorbance analysis"
+    venue: Journal of Food Engineering
+    doi: 10.1016/j.jfoodeng.2020.110448
+  - year: 2018
+    title: "A method for informed selection of memory-length and nonlinearity-order parameters in Volterra-Wiener systems from exponential sweep excitations"
+    venue: Multidimensional Systems and Signal Processing
+    doi: 10.1007/s11045-017-0535-3
+  - year: 2017
+    title: "Combined US and UWB-RF imaging of concrete structures for identification and location of embedded materials"
+    venue: Construction and Building Materials
+    doi: 10.1016/j.conbuildmat.2017.07.036
+  - year: 2015
+    title: "Compensation of biased excitation effects for MLS-based nonlinear systems' identification"
+    venue: Signal Processing
+    doi: 10.1016/j.sigpro.2015.03.014

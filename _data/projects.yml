@@ -1,0 +1,72 @@
+intro: Selected research frameworks and collaborations supporting this work, from competitively funded research to industry-funded R&D and technology transfer.
+sections:
+  - id: competitive
+    title: Competitive research
+    description: European and national research projects in which methodological work is developed and validated within broader scientific programmes.
+    items:
+      - title: DEPIA
+        years: 2022–2026
+        kind: National research project
+        role: Co-Principal Investigator
+        summary: Diagnosis and evaluation of Parkinson's using motor and non-motor biometrics, with responsibility for voice and speech processing, statistical modeling and acquisition protocols.
+        areas: [Speech, Biomedical signals, Statistical learning]
+      - title: REACT II
+        years: 2022–2027
+        kind: European R&D
+        role: Lead at GAPS-UPM
+        summary: Algorithms and systems for digital beamforming, control, pointing and calibration.
+        areas: [Beamforming, RF, Antenna arrays]
+      - title: DigiEcoQuarry
+        years: 2021–2025
+        kind: European R&D
+        role: UPM AI team
+        summary: AI and advanced sensing for quarry digitalisation, including vision models, 3D reconstruction and data-based monitoring.
+        areas: [Computer vision, 3D reconstruction, Industrial monitoring]
+      - title: HORFI
+        years: 2014–2016
+        kind: National research project
+        role: Postdoctoral researcher
+        summary: Advanced signal processing and experimental validation for ultra-wideband MIMO radar prototypes.
+        areas: [Radar, RF, Signal processing]
+
+  - id: industry
+    title: Industry-funded R&D
+    description: Applied research carried out with companies when the objective remains the development or validation of new methods rather than direct technology transfer.
+    items:
+      - title: SENER — nonlinear RF systems
+        years: "2025"
+        kind: Industry R&D
+        role: Lead
+        summary: Algorithmic characterization and predistortion methods for high-power amplifier systems.
+        areas: [System identification, Nonlinear systems, RF]
+      - title: Amazon Science — multimodal sonorization
+        years: "2023"
+        kind: Industry-supported R&D
+        role: Researcher
+        summary: Multimodal AI methods for the sonorization of multimedia content.
+        areas: [Multimodal learning, Generative audio]
+
+  - id: transfer
+    title: Transfer & innovation
+    description: Selected activities where research knowledge is moved into technological practice, commissioned development, products, training or entrepreneurial initiatives.
+    items:
+      - title: INDRA SISTEMAS — beamforming systems
+        years: "2025"
+        kind: Knowledge transfer
+        summary: Advanced training and technical transfer in digital beamforming systems.
+      - title: Shazura–ETSIT-UPM Industry Chair
+        years: 2019–2023
+        kind: Industry chair
+        summary: Applied AI, multimedia research and technology-transfer activity.
+      - title: AI content search & annotation
+        years: 2018–2024
+        kind: Technology development
+        summary: Applied AI and content-based search work with technology companies including Shot&Shop and Sigma Technologies/Cognition.
+      - title: PhoneDrive / Drivies
+        years: 2016–2017
+        kind: Product-oriented transfer
+        summary: Data science and risk analysis for insurance telematics, including technology-transfer activity with Telefónica R&D.
+      - title: ACOPIALab
+        years: "2024–"
+        kind: Entrepreneurship
+        summary: UPM spin-off initiative emerging from research and technology-transfer activity.
