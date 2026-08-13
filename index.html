@@ -1,0 +1,30 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+<div class="kicker">{{ site.data.profile.kicker }}</div>
+<h1>{{ site.data.profile.research_statement }}</h1>
+<p class="lead">{{ site.data.profile.intro }}</p>
+
+<div class="directions directions-two">
+  <section class="direction">
+    <h3>Research directions</h3>
+    <p>Methods, models and systems I currently work on and want to develop further.</p>
+    <a href="/research/#directions">Explore research →</a>
+  </section>
+  <section class="direction">
+    <h3>Projects &amp; funding</h3>
+    <p>Competitive research, industry-funded R&amp;D, transfer and innovation supporting these research lines.</p>
+    <a href="/research/#projects">Explore projects →</a>
+  </section>
+</div>
+
+<section class="now">
+  <div class="section-label">Current focus</div>
+  <div class="now-grid">
+    {% for item in site.data.profile.current_focus %}
+    <div class="now-item"><b>{{ item.title }}</b><span>{{ item.text }}</span></div>
+    {% endfor %}
+  </div>
+</section>

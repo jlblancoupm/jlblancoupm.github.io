@@ -1,0 +1,42 @@
+---
+layout: default
+title: About
+permalink: /about/
+---
+<div class="kicker">About</div>
+<h1>A short introduction.</h1>
+<p class="page-intro">{{ site.data.about.intro }}</p>
+
+<section class="about-section">
+  <h2>Research perspective</h2>
+  <p>{{ site.data.about.research }}</p>
+</section>
+
+<section class="about-section">
+  <h2>At UPM</h2>
+  <div class="compact-list">
+    {% for item in site.data.about.institutional %}
+    <div class="compact-row">
+      <div class="compact-title">{{ item.title }}</div>
+      <div class="compact-detail">{{ item.detail }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="about-section">
+  <h2>Background</h2>
+  <div class="compact-list">
+    {% for item in site.data.about.background %}
+    <div class="compact-row compact-row-year">
+      <div class="compact-year">{{ item.year }}</div>
+      <div>
+        <div class="compact-title">{{ item.title }}</div>
+        <div class="compact-detail">{{ item.detail }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<p class="about-note">{{ site.data.about.note }}</p>

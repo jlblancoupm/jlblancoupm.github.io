@@ -1,0 +1,50 @@
+---
+layout: default
+title: Teaching
+permalink: /teaching/
+---
+<div class="kicker">Teaching</div>
+<h1>Courses and teaching activities.</h1>
+<p class="page-intro">{{ site.data.teaching.intro }}</p>
+
+<section class="about-section">
+  <h2>Current courses</h2>
+  <div class="course-list">
+  {% for course in site.data.teaching.current_courses %}
+    <article class="course-item">
+      <div class="course-top">
+        <h3>{{ course.title }}</h3>
+        {% if course.status %}<span class="course-status">{{ course.status }}</span>{% endif %}
+      </div>
+      <div class="item-meta">{{ course.institution }} · {{ course.role }}</div>
+      <p>{{ course.description }}</p>
+    </article>
+  {% endfor %}
+  </div>
+</section>
+
+<section class="about-section">
+  <h2>Selected courses &amp; initiatives</h2>
+  <div class="course-list">
+  {% for course in site.data.teaching.selected_courses %}
+    <article class="course-item">
+      <div class="course-top">
+        <h3>{{ course.title }}</h3>
+        <span class="course-year">{{ course.years | default: course.year }}</span>
+      </div>
+      <div class="item-meta">{{ course.institution }} · {{ course.role }}</div>
+      <p>{{ course.description }}</p>
+    </article>
+  {% endfor %}
+  </div>
+</section>
+
+<section class="about-section">
+  <h2>Teaching areas</h2>
+  <div class="tags teaching-tags">
+  {% for area in site.data.teaching.teaching_areas %}
+    <span class="tag">{{ area }}</span>
+  {% endfor %}
+  </div>
+  <p class="teaching-note">{{ site.data.teaching.innovation }}</p>
+</section>

@@ -1,0 +1,14 @@
+<aside class="sidebar">
+  <div class="avatar"><img src="/assets/images/avatar.png" alt="Illustrated portrait of José Luis Blanco Murillo"></div>
+  <div class="sidebar-main">
+    <div class="name">{{ site.data.profile.name }}</div>
+    <div class="role">{{ site.data.profile.position }}</div>
+    <div class="affil">{{ site.data.profile.institution }}</div>
+  </div>
+  <div class="social">
+    <a href="mailto:{{ site.data.profile.email }}">{{ site.data.profile.email }}</a>
+    {% for link in site.data.profile.links %}
+    <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }} ↗</a>
+    {% endfor %}
+  </div>
+</aside>

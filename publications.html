@@ -1,0 +1,209 @@
+---
+layout: default
+title: Publications
+permalink: /publications/
+---
+{% assign journal_count = site.data.publications.journals | size %}
+{% assign conference_count = site.data.publications.conferences | size %}
+
+<div class="kicker">Publications</div>
+<h1>Publications.</h1>
+<p class="page-intro">Journal articles and conference papers and contributions, organised using the same research taxonomy as the rest of the site.</p>
+
+<div class="publication-overview">
+  <span><strong>{{ journal_count }}</strong> journal articles</span>
+  <span><strong>{{ conference_count }}</strong> conference contributions</span>
+  <a href="#conference-venues">Conference venues ↓</a>
+</div>
+
+<div class="publication-toolbar">
+  <div class="publication-tabs" aria-label="Publication type">
+    <button type="button" class="active" data-type="All">All</button>
+    <button type="button" data-type="Journal">Journals</button>
+    <button type="button" data-type="Conference">Conferences</button>
+  </div>
+  <input id="pub-search" class="publication-search" type="search" placeholder="Search title, author or venue…" aria-label="Search publications">
+</div>
+
+<div class="publication-selects">
+  <select id="pub-year"><option value="All">All years</option></select>
+  <select id="pub-venue"><option value="All">All venues</option></select>
+</div>
+
+<details class="publication-research-filters">
+  <summary>Filter by research area</summary>
+  <div class="publication-selects publication-selects-three">
+    <select id="pub-method"><option value="All">All methods</option></select>
+    <select id="pub-system"><option value="All">All systems</option></select>
+    <select id="pub-application"><option value="All">All application areas</option></select>
+  </div>
+</details>
+
+<div class="publication-results"><span id="pub-count">{{ journal_count | plus: conference_count }}</span> records shown</div>
+
+<section class="publication-group" id="journal-publications" data-group="Journal">
+  <div class="publication-group-heading">
+    <div class="section-label">Journal articles</div>
+  </div>
+  {% for pub in site.data.publications.journals %}
+    {% capture method_ids %}{% for id in pub.methods %}{{ id }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    {% capture method_labels %}{% for id in pub.methods %}{{ site.data.taxonomy.methods[id] }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    {% capture system_ids %}{% for id in pub.systems %}{{ id }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    {% capture system_labels %}{% for id in pub.systems %}{{ site.data.taxonomy.systems[id] }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    {% capture application_ids %}{% for id in pub.applications %}{{ id }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    {% capture application_labels %}{% for id in pub.applications %}{{ site.data.taxonomy.applications[id] }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    <article class="publication-entry" data-type="Journal" data-year="{{ pub.year }}" data-venue="{{ pub.venue | escape }}" data-venue-label="{{ pub.venue | escape }}" data-methods="{{ method_ids | strip }}" data-method-labels="{{ method_labels | strip | escape }}" data-systems="{{ system_ids | strip }}" data-system-labels="{{ system_labels | strip | escape }}" data-applications="{{ application_ids | strip }}" data-application-labels="{{ application_labels | strip | escape }}" data-search="{{ pub.title | append: ' ' | append: pub.authors | append: ' ' | append: pub.venue | append: ' ' | append: method_labels | append: ' ' | append: system_labels | append: ' ' | append: application_labels | downcase | escape }}">
+      <div class="publication-year">{{ pub.year }}</div>
+      <div class="publication-body">
+        <div class="publication-kind">Journal article{% if pub.rank %} · {{ pub.rank }}{% endif %}</div>
+        <h2>{{ pub.title }}</h2>
+        <div class="publication-authors">{{ pub.authors }}</div>
+        <div class="publication-venue">{{ pub.venue }}</div>
+        <div class="publication-taxonomy">
+          {% assign first = true %}
+          {% for id in pub.methods %}{% unless first %}<span>·</span>{% endunless %}{{ site.data.taxonomy.methods[id] }}{% assign first = false %}{% endfor %}
+          {% for id in pub.systems %}{% unless first %}<span>·</span>{% endunless %}{{ site.data.taxonomy.systems[id] }}{% assign first = false %}{% endfor %}
+          {% for id in pub.applications %}{% unless first %}<span>·</span>{% endunless %}{{ site.data.taxonomy.applications[id] }}{% assign first = false %}{% endfor %}
+        </div>
+        <div class="publication-links">
+          {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+          {% if pub.pdf %}<a href="{{ pub.pdf }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+          {% if pub.code %}<a href="{{ pub.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+          {% if pub.demo %}<a href="{{ pub.demo }}" target="_blank" rel="noopener">Demo</a>{% endif %}
+          <a href="https://scholar.google.com/scholar?q={{ pub.title | url_encode }}" target="_blank" rel="noopener">Scholar</a>
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+</section>
+
+<section class="publication-group" id="conference-publications" data-group="Conference">
+  <div class="publication-group-heading">
+    <div class="section-label">Conference papers &amp; contributions</div>
+  </div>
+  {% for pub in site.data.publications.conferences %}
+    {% assign conf = site.data.conferences.items[pub.conference_id] %}
+    {% capture method_ids %}{% for id in pub.methods %}{{ id }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    {% capture method_labels %}{% for id in pub.methods %}{{ site.data.taxonomy.methods[id] }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    {% capture system_ids %}{% for id in pub.systems %}{{ id }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    {% capture system_labels %}{% for id in pub.systems %}{{ site.data.taxonomy.systems[id] }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    {% capture application_ids %}{% for id in pub.applications %}{{ id }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    {% capture application_labels %}{% for id in pub.applications %}{{ site.data.taxonomy.applications[id] }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+    <article class="publication-entry" data-type="Conference" data-year="{{ pub.year }}" data-venue="{{ pub.conference_id }}" data-venue-label="{% if conf %}{{ conf.short | escape }}{% else %}{{ pub.venue | escape }}{% endif %}" data-methods="{{ method_ids | strip }}" data-method-labels="{{ method_labels | strip | escape }}" data-systems="{{ system_ids | strip }}" data-system-labels="{{ system_labels | strip | escape }}" data-applications="{{ application_ids | strip }}" data-application-labels="{{ application_labels | strip | escape }}" data-search="{{ pub.title | append: ' ' | append: pub.authors | append: ' ' | append: pub.venue | append: ' ' | append: method_labels | append: ' ' | append: system_labels | append: ' ' | append: application_labels | downcase | escape }}">
+      <div class="publication-year">{{ pub.year }}</div>
+      <div class="publication-body">
+        <div class="publication-kind">{% if pub.record_kind == 'proceedings-paper' %}Conference paper{% else %}Conference contribution{% endif %}{% if pub.presentation_type %} · {{ pub.presentation_type }}{% endif %}</div>
+        <h2>{{ pub.title }}</h2>
+        <div class="publication-authors">{{ pub.authors }}</div>
+        <div class="publication-venue">{% if conf %}{{ conf.short }}{% else %}{{ pub.venue }}{% endif %}{% if pub.location %} · {{ pub.location }}{% endif %}{% if pub.award %} · <strong>{{ pub.award }}</strong>{% endif %}</div>
+        <div class="publication-taxonomy">
+          {% assign first = true %}
+          {% for id in pub.methods %}{% unless first %}<span>·</span>{% endunless %}{{ site.data.taxonomy.methods[id] }}{% assign first = false %}{% endfor %}
+          {% for id in pub.systems %}{% unless first %}<span>·</span>{% endunless %}{{ site.data.taxonomy.systems[id] }}{% assign first = false %}{% endfor %}
+          {% for id in pub.applications %}{% unless first %}<span>·</span>{% endunless %}{{ site.data.taxonomy.applications[id] }}{% assign first = false %}{% endfor %}
+        </div>
+        <div class="publication-links">
+          {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener">DOI</a>{% endif %}
+          {% if pub.pdf %}<a href="{{ pub.pdf }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+          {% if pub.code %}<a href="{{ pub.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+          {% if pub.demo %}<a href="{{ pub.demo }}" target="_blank" rel="noopener">Demo</a>{% endif %}
+          <a href="https://scholar.google.com/scholar?q={{ pub.title | url_encode }}" target="_blank" rel="noopener">Scholar</a>
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+</section>
+
+<div id="pub-empty" class="publication-empty" hidden>No publications match the selected filters.</div>
+
+<section id="conference-venues" class="conference-venues">
+  <div class="section-label">Conference taxonomy</div>
+  <h2>Conference venues</h2>
+  <p class="conference-intro">Conferences currently represented in the public profile. Selecting one filters the conference contributions above.</p>
+  <div class="conference-list">
+    {% for pair in site.data.conferences.items %}
+      {% assign conf_id = pair[0] %}
+      {% assign conf = pair[1] %}
+      {% assign n = 0 %}
+      {% for pub in site.data.publications.conferences %}{% if pub.conference_id == conf_id %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}
+      {% if n > 0 %}
+      <button type="button" class="conference-row" data-conference="{{ conf_id }}">
+        <span><strong>{{ conf.short }}</strong><small>{{ conf.name }}</small></span>
+        <span>{{ n }}</span>
+      </button>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+(function () {
+  const entries = Array.from(document.querySelectorAll('.publication-entry'));
+  const groups = Array.from(document.querySelectorAll('.publication-group'));
+  const search = document.getElementById('pub-search');
+  const count = document.getElementById('pub-count');
+  const empty = document.getElementById('pub-empty');
+  const controls = {
+    year: document.getElementById('pub-year'),
+    venue: document.getElementById('pub-venue'),
+    method: document.getElementById('pub-method'),
+    system: document.getElementById('pub-system'),
+    application: document.getElementById('pub-application')
+  };
+  const state = {type:'All', year:'All', venue:'All', method:'All', system:'All', application:'All'};
+
+  function pairs(ids, labels) {
+    const a=(ids||'').split('|').filter(Boolean), b=(labels||'').split('|');
+    return a.map((id,i)=>[id,b[i]||id]);
+  }
+  function uniquePairs(kind) {
+    const map=new Map();
+    entries.forEach(e => {
+      if (kind==='venue') map.set(e.dataset.venue, e.dataset.venueLabel || e.dataset.venue);
+      else {
+        const key = kind==='method' ? ['methods','methodLabels'] : kind==='system' ? ['systems','systemLabels'] : ['applications','applicationLabels'];
+        pairs(e.dataset[key[0]], e.dataset[key[1]]).forEach(([id,label])=>map.set(id,label));
+      }
+    });
+    return Array.from(map.entries()).filter(([id])=>id).sort((a,b)=>a[1].localeCompare(b[1]));
+  }
+  function addOptions(select, kind) {
+    if (kind==='year') {
+      Array.from(new Set(entries.map(e=>e.dataset.year))).sort((a,b)=>Number(b)-Number(a)).forEach(v=>select.add(new Option(v,v)));
+    } else uniquePairs(kind).forEach(([id,label])=>select.add(new Option(label,id)));
+    select.addEventListener('change',()=>{state[kind]=select.value; apply();});
+  }
+  function has(raw, value) { return (raw||'').split('|').includes(value); }
+  function apply() {
+    const q=(search.value||'').trim().toLowerCase();
+    let visible=0;
+    entries.forEach(e=>{
+      const ok = (!q || e.dataset.search.includes(q)) &&
+        (state.type==='All' || e.dataset.type===state.type) &&
+        (state.year==='All' || e.dataset.year===state.year) &&
+        (state.venue==='All' || e.dataset.venue===state.venue) &&
+        (state.method==='All' || has(e.dataset.methods,state.method)) &&
+        (state.system==='All' || has(e.dataset.systems,state.system)) &&
+        (state.application==='All' || has(e.dataset.applications,state.application));
+      e.hidden=!ok; if(ok) visible++;
+    });
+    groups.forEach(g=>g.hidden=!Array.from(g.querySelectorAll('.publication-entry')).some(e=>!e.hidden));
+    count.textContent=visible; empty.hidden=visible!==0;
+  }
+  document.querySelectorAll('[data-type]').forEach(button=>button.addEventListener('click',()=>{
+    state.type=button.dataset.type;
+    document.querySelectorAll('[data-type]').forEach(b=>b.classList.toggle('active',b===button));
+    apply();
+  }));
+  document.querySelectorAll('[data-conference]').forEach(button=>button.addEventListener('click',()=>{
+    state.type='Conference'; state.venue=button.dataset.conference;
+    controls.venue.value=state.venue;
+    document.querySelectorAll('[data-type]').forEach(b=>b.classList.toggle('active',b.dataset.type==='Conference'));
+    apply();
+    document.getElementById('conference-publications').scrollIntoView({behavior:'smooth',block:'start'});
+  }));
+  search.addEventListener('input',apply);
+  addOptions(controls.year,'year'); addOptions(controls.venue,'venue'); addOptions(controls.method,'method'); addOptions(controls.system,'system'); addOptions(controls.application,'application');
+  apply();
+})();
+</script>
