@@ -1,0 +1,17 @@
+<aside class="profile-card">
+  <img class="avatar" src="{{ '/assets/images/avatar.png' | relative_url }}" alt="Illustrated portrait of José Luis Blanco Murillo">
+
+  <h2 class="profile-name">
+    <span>{{ site.data.profile.name_line1 }}</span>
+    <span>{{ site.data.profile.name_line2 }}</span>
+  </h2>
+
+  <p class="profile-title">{{ site.data.profile.title }}</p>
+  <p class="profile-role">{{ site.data.profile.role }}</p>
+
+  <div class="profile-links">
+    <a href="{{ '/supervision/#student-enquiry' | relative_url }}">Contact</a>
+    <a href="https://orcid.org/{{ site.data.profile.orcid }}">ORCID</a>
+    <a href="https://github.com/{{ site.data.profile.github }}">GitHub</a>
+  </div>
+</aside>

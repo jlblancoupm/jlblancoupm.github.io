@@ -1,0 +1,59 @@
+phd_completed:
+- name: Ana Montero Benavides
+  title: Statistical analysis of the connection between sleep apnea and speech
+  year: '2017'
+- name: Javier Coronel Gaviro
+  title: Contributions to wide-spectrum characterization of liquid solutions using
+    SDR technology
+  year: '2021'
+- name: Mateo José Cámara Largo
+  title: Doctoral research in audio generation and physical modeling
+  year: '2024'
+phd_ongoing:
+- name: Juan Gutiérrez Navarro
+  expected: '2027'
+- name: Fernando Marcos Macías
+  expected: '2028'
+- name: Santiago Loza Morcillo
+  expected: '2029'
+- name: María Pilar Daza Llín
+  expected: '2029'
+- name: Víctor Gutiérrez García
+  expected: '2029'
+selected_msc:
+- name: Fernando Marcos Macías
+  title: Development of a System for Characterization and Compensation for Next-Generation
+    Audio
+- name: María Pilar Daza Llín
+  title: Development and Evaluation of Advanced Training Strategies for a Text-to-Speech
+    System
+- name: Jesús Rincón Laguarta
+  title: Development of a Tool for Generating Realistic Imaging Sequences to Assess
+    Cell Migration
+- name: Daniel de la Fuente García
+  title: Comparative analysis of frequency-modulation detection using adapted schemes
+    and neural networks
+selected_bsc:
+- name: María Pilar Daza Llín
+  title: Implementation and evaluation of voice-cloning systems guided by unsupervised
+    audio selection
+- name: Fernando Marcos Macías
+  title: Design of a system for deep-scheme synthetic auralization
+- name: Alejandro Blas Sicilia Pajares
+  title: Implementation and comparison of deep schemes for sound anomaly detection
+- name: David Vázquez García
+  title: Development and evaluation of anomaly detection in acoustic and mechanical
+    vibrations
+open_topics:
+- title: Audio & Speech
+  text: Generative and model-based audio, speech synthesis, voice analysis, physical
+    sound-production models and related inverse problems.
+- title: System Modeling & Inverse Problems
+  text: Identification, inversion and analysis-by-synthesis for nonlinear or physically
+    motivated signal-generating systems.
+- title: Advanced Communications
+  text: Beamforming, radar, RF systems, large-scale antenna arrays and signal-processing
+    methods for communications.
+- title: Applied Signal Processing & Machine Learning
+  text: Applied projects in biomedical, industrial and multimodal systems where signal-processing
+    methods can be evaluated on real data.
