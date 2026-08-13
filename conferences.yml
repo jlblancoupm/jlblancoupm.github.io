@@ -1,0 +1,34 @@
+items:
+  ieee-radarconf:
+    short: IEEE RadarConf
+    name: IEEE Radar Conference
+  forum-acusticum-euronoise:
+    short: Forum Acusticum / Euronoise
+    name: Forum Acusticum / Euronoise
+  comminution:
+    short: Comminution
+    name: Comminution
+  ieee-bibm:
+    short: IEEE BIBM
+    name: IEEE International Conference on Bioinformatics and Biomedicine (BIBM)
+  icmgmet:
+    short: ICMGMET
+    name: ICMGMET
+  tecniacustica:
+    short: TECNIACÚSTICA
+    name: TECNIACÚSTICA
+  dafx:
+    short: DAFx
+    name: International Conference on Digital Audio Effects (DAFx)
+  aiai:
+    short: AIAI
+    name: International Conference AIAI
+  ibero-neuromarketing:
+    short: Iberoamerican Neuromarketing
+    name: Congreso Iberoamericano de Neuromarketing
+  fecies-forum:
+    short: Quality in Research & HE Forum
+    name: Foro Internacional sobre Evaluación de la Calidad de la Investigación y la Educación Superior
+  telein2:
+    short: Tele(In)2
+    name: Tele(In)2 Conference on Teaching & Learning Innovation
