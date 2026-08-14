@@ -1,6 +1,0 @@
-provider: formspree
-form_id: REPLACE_WITH_FORMSPREE_FORM_ID
-success_message: Thank you. Your enquiry has been sent. You should receive a confirmation email shortly.
-confirmation_subject: Your supervision enquiry has been received
-confirmation_message: Thank you for contacting José Luis Blanco Murillo / GAPS-UPM regarding student supervision. Your enquiry
-  has been received and will be reviewed. A response will be sent if the proposed topic and profile are a suitable match.
