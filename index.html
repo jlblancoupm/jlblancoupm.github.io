@@ -1,0 +1,67 @@
+---
+layout: default
+title:
+section: home
+permalink: /
+---
+<div class="home-hero">
+  <div class="home-hero-copy">
+    <div class="home-identity">
+      <h1 class="home-name">
+        <span>{{ site.data.profile.name_line1 }}</span>
+        <span>{{ site.data.profile.name_line2 }}</span>
+      </h1>
+      <p class="home-role">{{ site.data.profile.title }}</p>
+      <p class="home-role">{{ site.data.profile.role }}</p>
+    </div>
+
+    <h2 class="home-statement">{{ site.data.profile.statement }}</h2>
+    <p class="home-intro">{{ site.data.profile.intro }}</p>
+
+    <div class="home-focus" aria-label="Current research focus">
+      <div class="home-focus-item">
+        <svg viewBox="0 0 48 32" aria-hidden="true">
+          <path d="M2 16h6l3-10 5 21 5-18 5 14 4-12 4 5h12"/>
+        </svg>
+        <span>Audio &amp; Speech</span>
+      </div>
+
+      <div class="home-focus-item">
+        <svg viewBox="0 0 48 32" aria-hidden="true">
+          <circle cx="24" cy="16" r="8"/>
+          <circle cx="24" cy="3" r="2"/>
+          <circle cx="39" cy="16" r="2"/>
+          <circle cx="24" cy="29" r="2"/>
+          <circle cx="9" cy="16" r="2"/>
+          <path d="M24 5v3M37 16h-5M24 27v-3M11 16h5"/>
+        </svg>
+        <span>System Modeling &amp; Inverse Problems</span>
+      </div>
+
+      <div class="home-focus-item">
+        <svg viewBox="0 0 48 32" aria-hidden="true">
+          <path d="M24 10v18M19 28h10M21 18l-5 10M27 18l5 10"/>
+          <path d="M17 12a10 10 0 0 1 14 0M13 8a16 16 0 0 1 22 0M21 15a4 4 0 0 1 6 0"/>
+        </svg>
+        <span>Advanced Communications</span>
+      </div>
+    </div>
+
+    <div class="home-actions">
+      <a class="home-contact" href="{{ '/contact/#contact-form' | relative_url }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg>
+        <span>Contact</span>
+      </a>
+      <a class="home-external home-orcid" href="https://orcid.org/{{ site.data.profile.orcid }}" target="_blank" rel="noopener">
+        <span class="orcid-dot">iD</span><span>ORCID</span><span aria-hidden="true">↗</span>
+      </a>
+      <a class="home-external" href="https://github.com/{{ site.data.profile.github }}" target="_blank" rel="noopener">
+        <span class="github-mark" aria-hidden="true">●</span><span>GitHub</span><span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="home-avatar-wrap" aria-hidden="true">
+    <img class="home-avatar" src="{{ '/assets/images/avatar.png' | relative_url }}?v=4.10.1" alt="">
+  </div>
+</div>
