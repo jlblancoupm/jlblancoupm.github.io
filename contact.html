@@ -1,0 +1,426 @@
+---
+layout: default
+title: Contact
+section:
+permalink: /contact/
+---
+<h1>Contact</h1>
+<p class="lede contact-lede">Get in touch about research, collaboration, teaching, supervision or technology transfer.</p>
+
+<aside class="contact-affiliation-wrap" aria-label="Research group affiliation">
+  <a class="contact-affiliation" href="https://www.gaps.ssr.upm.es/" target="_blank" rel="noopener noreferrer" aria-label="Visit the GAPS — Signal Processing Applications Group website">
+    <img src="{{ '/assets/images/gaps-mark-v4122.png' | relative_url }}" alt="GAPS — Signal Processing Applications Group logo">
+    <div class="contact-affiliation-copy">
+      <span class="contact-affiliation-eyebrow">Research group</span>
+      <strong>GAPS — Signal Processing Applications Group</strong>
+      <span>Universidad Politécnica de Madrid</span>
+    </div>
+    <span class="contact-affiliation-link">gaps.ssr.upm.es ↗</span>
+  </a>
+</aside>
+
+<section class="contact-page" aria-label="Contact form">
+
+  <form id="contact-form"
+        class="contact-form-v2"
+        method="post"
+        action="{{ site.data.contact.endpoint }}"
+        target="contact-submit-frame">
+
+    <div class="contact-primary">
+      <label class="field field-wide">
+        <span>Reason for contact</span>
+        <select name="reason" id="contact-reason" required>
+          <option value="">Select one</option>
+          <option value="Research collaboration">Research collaboration</option>
+          <option value="Industry and transfer">Industry / technology transfer</option>
+          <option value="Teaching">Teaching</option>
+          <option value="Student supervision">Student supervision / BSc / MSc / PhD</option>
+          <option value="Other">Other professional enquiry</option>
+        </select>
+      </label>
+
+      <div class="contact-grid">
+        <label class="field">
+          <span>Name</span>
+          <input name="name" type="text" required autocomplete="name" maxlength="120">
+        </label>
+
+        <label class="field">
+          <span>Email</span>
+          <input name="email" type="email" required autocomplete="email" maxlength="200">
+        </label>
+      </div>
+
+      <label class="field field-wide">
+        <span>Subject</span>
+        <input name="topic" type="text" required maxlength="200" placeholder="Brief subject of your message">
+      </label>
+    </div>
+
+    <div id="student-contact-block" class="student-fields" hidden>
+      <div class="contact-divider"></div>
+      <div class="contact-section-heading">
+        <span class="eyebrow">Student supervision</span>
+        <h2>BSc, MSc or PhD enquiry</h2>
+        <p>Please include enough information to assess the fit with the proposed topic.</p>
+      </div>
+
+      <div class="contact-grid">
+        <label class="field">
+          <span>Intended level</span>
+          <select id="student-level">
+            <option value="">Select one</option>
+            <option>BSc / TFG</option>
+            <option>MSc / TFM</option>
+            <option>PhD</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Research area / topic of interest</span>
+          <input id="student-topic" type="text" maxlength="200">
+        </label>
+      </div>
+    </div>
+
+    <label class="field field-wide message-field">
+      <span>Message</span>
+      <textarea id="message-visible" required maxlength="5000" placeholder="Tell me briefly what you would like to discuss."></textarea>
+    </label>
+
+    <div class="contact-divider"></div>
+
+    <details id="general-attachment-block" class="attachment-section attachment-disclosure">
+      <summary>Add an optional attachment</summary>
+      <div class="attachment-disclosure-body">
+        <label class="file-field">
+          <span>Optional document</span>
+          <input id="general-attachment" type="file" accept=".pdf,.doc,.docx">
+          <small>PDF, DOC or DOCX · max. {{ site.data.contact.max_file_mb }} MB</small>
+        </label>
+      </div>
+    </details>
+
+    <div id="student-attachment-block" class="attachment-section" hidden>
+      <div class="contact-section-heading compact">
+        <span class="eyebrow">Documents</span>
+        <h2>Application material</h2>
+        <p>For student enquiries, these three documents are required.</p>
+      </div>
+
+      <div class="file-grid">
+        <label class="file-field">
+          <span>Updated CV</span>
+          <input id="file-cv" type="file" accept=".pdf,.doc,.docx">
+          <small>PDF or Word · max. {{ site.data.contact.max_file_mb }} MB</small>
+        </label>
+
+        <label class="file-field">
+          <span>Academic transcript / marks</span>
+          <input id="file-transcript" type="file" accept=".pdf,.doc,.docx">
+          <small>PDF or Word · max. {{ site.data.contact.max_file_mb }} MB</small>
+        </label>
+
+        <label class="file-field">
+          <span>Motivation letter</span>
+          <input id="file-motivation" type="file" accept=".pdf,.doc,.docx">
+          <small>PDF or Word · max. {{ site.data.contact.max_file_mb }} MB</small>
+        </label>
+      </div>
+    </div>
+
+    <input type="hidden" name="message" id="message-submit">
+
+    <input type="hidden" name="file1_name" id="file1-name">
+    <input type="hidden" name="file1_type" id="file1-type">
+    <input type="hidden" name="file1_data" id="file1-data">
+
+    <input type="hidden" name="file2_name" id="file2-name">
+    <input type="hidden" name="file2_type" id="file2-type">
+    <input type="hidden" name="file2_data" id="file2-data">
+
+    <input type="hidden" name="file3_name" id="file3-name">
+    <input type="hidden" name="file3_type" id="file3-type">
+    <input type="hidden" name="file3_data" id="file3-data">
+
+    <div class="contact-honeypot" aria-hidden="true">
+      <label>Website
+        <input name="website" type="text" tabindex="-1" autocomplete="off">
+      </label>
+    </div>
+
+    <div class="contact-submit-row">
+      <p class="contact-privacy">
+        The recipient email address is not published on this website.
+        Attachments are sent with the message and are not stored by the website.
+      </p>
+
+      <div class="contact-submit-actions">
+        <button id="contact-submit" type="submit">Send message</button>
+
+        <div id="contact-success" class="contact-feedback success" hidden>
+          <strong>Message sent.</strong>
+          <span>{{ site.data.contact.success_message }}</span>
+        </div>
+
+        <div id="contact-error" class="contact-feedback error" hidden>
+          <strong>Unable to send.</strong>
+          <span>Please check the form and try again.</span>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <iframe name="contact-submit-frame"
+          id="contact-submit-frame"
+          title="Contact submission"
+          class="contact-submit-frame"></iframe>
+</section>
+
+<script>
+(function () {
+  const form = document.getElementById('contact-form');
+  const reason = document.getElementById('contact-reason');
+  const studentBlock = document.getElementById('student-contact-block');
+  const generalAttachmentBlock = document.getElementById('general-attachment-block');
+  const studentAttachmentBlock = document.getElementById('student-attachment-block');
+
+  const studentLevel = document.getElementById('student-level');
+  const studentTopic = document.getElementById('student-topic');
+
+  const generalAttachment = document.getElementById('general-attachment');
+  const cv = document.getElementById('file-cv');
+  const transcript = document.getElementById('file-transcript');
+  const motivation = document.getElementById('file-motivation');
+
+  const visibleMessage = document.getElementById('message-visible');
+  const submitMessage = document.getElementById('message-submit');
+  const submitButton = document.getElementById('contact-submit');
+  const success = document.getElementById('contact-success');
+  const error = document.getElementById('contact-error');
+
+  const maxFileBytes = {{ site.data.contact.max_file_mb | times: 1048576 }};
+  const maxTotalBytes = {{ site.data.contact.max_total_mb | times: 1048576 }};
+  const allowedExtensions = ['pdf', 'doc', 'docx'];
+
+  let awaitingResponse = false;
+  let timer = null;
+
+  function isStudent() {
+    return reason.value === 'Student supervision';
+  }
+
+  function updateMode() {
+    const active = isStudent();
+
+    studentBlock.hidden = !active;
+    studentAttachmentBlock.hidden = !active;
+    generalAttachmentBlock.hidden = active;
+
+    studentLevel.required = active;
+    studentTopic.required = active;
+    cv.required = active;
+    transcript.required = active;
+    motivation.required = active;
+
+    if (active) {
+      if ('open' in generalAttachmentBlock) generalAttachmentBlock.open = false;
+      generalAttachment.value = '';
+    } else {
+      studentLevel.value = '';
+      studentTopic.value = '';
+      cv.value = '';
+      transcript.value = '';
+      motivation.value = '';
+    }
+  }
+
+  function setBusy(value) {
+    submitButton.disabled = value;
+    submitButton.textContent = value ? 'Sending…' : 'Send message';
+  }
+
+  function showSuccess() {
+    awaitingResponse = false;
+    clearTimeout(timer);
+    error.hidden = true;
+    success.hidden = false;
+    setBusy(false);
+    form.reset();
+    clearHiddenFiles();
+    if ('open' in generalAttachmentBlock) generalAttachmentBlock.open = false;
+    updateMode();
+  }
+
+  function showError(message) {
+    awaitingResponse = false;
+    clearTimeout(timer);
+    success.hidden = true;
+    error.querySelector('span').textContent =
+      message || 'Please check the form and try again.';
+    error.hidden = false;
+    setBusy(false);
+  }
+
+  function extensionOf(file) {
+    const bits = file.name.toLowerCase().split('.');
+    return bits.length > 1 ? bits.pop() : '';
+  }
+
+  function validateFiles(files) {
+    let total = 0;
+
+    for (const file of files) {
+      if (!file) continue;
+
+      if (!allowedExtensions.includes(extensionOf(file))) {
+        throw new Error('Attachments must be PDF, DOC or DOCX files.');
+      }
+
+      if (file.size > maxFileBytes) {
+        throw new Error(
+          file.name + ' is larger than {{ site.data.contact.max_file_mb }} MB.'
+        );
+      }
+
+      total += file.size;
+    }
+
+    if (total > maxTotalBytes) {
+      throw new Error(
+        'The combined attachments are larger than {{ site.data.contact.max_total_mb }} MB.'
+      );
+    }
+  }
+
+  function readFile(file) {
+    return new Promise((resolve, reject) => {
+      if (!file) {
+        resolve(null);
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = function () {
+        const result = String(reader.result || '');
+        const comma = result.indexOf(',');
+        if (comma < 0) {
+          reject(new Error('Could not prepare ' + file.name + '.'));
+          return;
+        }
+
+        resolve({
+          name: file.name,
+          type: file.type || 'application/octet-stream',
+          data: result.slice(comma + 1)
+        });
+      };
+
+      reader.onerror = function () {
+        reject(new Error('Could not read ' + file.name + '.'));
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function clearHiddenFiles() {
+    for (let i = 1; i <= 3; i++) {
+      document.getElementById('file' + i + '-name').value = '';
+      document.getElementById('file' + i + '-type').value = '';
+      document.getElementById('file' + i + '-data').value = '';
+    }
+  }
+
+  function setHiddenFile(index, file) {
+    document.getElementById('file' + index + '-name').value = file ? file.name : '';
+    document.getElementById('file' + index + '-type').value = file ? file.type : '';
+    document.getElementById('file' + index + '-data').value = file ? file.data : '';
+  }
+
+  function buildMessage() {
+    let body = visibleMessage.value.trim();
+
+    if (isStudent()) {
+      body = [
+        'Student supervision enquiry',
+        'Intended level: ' + studentLevel.value.trim(),
+        'Research area / topic: ' + studentTopic.value.trim(),
+        '',
+        body
+      ].join('\\n');
+    }
+
+    submitMessage.value = body;
+  }
+
+  async function prepareFiles() {
+    clearHiddenFiles();
+
+    const selected = isStudent()
+      ? [cv.files[0], transcript.files[0], motivation.files[0]]
+      : [generalAttachment.files[0]];
+
+    validateFiles(selected);
+
+    const prepared = await Promise.all(selected.map(readFile));
+
+    prepared.forEach((file, i) => {
+      setHiddenFile(i + 1, file);
+    });
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('reason') === 'student') {
+    reason.value = 'Student supervision';
+  }
+
+  reason.addEventListener('change', updateMode);
+
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    success.hidden = true;
+    error.hidden = true;
+    updateMode();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    setBusy(true);
+
+    try {
+      buildMessage();
+      await prepareFiles();
+
+      awaitingResponse = true;
+      timer = setTimeout(function () {
+        if (awaitingResponse) {
+          showError('The server did not confirm the submission. Please try again later.');
+        }
+      }, 30000);
+
+      HTMLFormElement.prototype.submit.call(form);
+    } catch (err) {
+      showError(err.message || 'Unable to prepare the attachments.');
+    }
+  });
+
+  window.addEventListener('message', function (event) {
+    const data = event.data;
+    if (!awaitingResponse || !data || data.type !== 'gitjl-contact') return;
+
+    if (data.ok) {
+      showSuccess();
+    } else {
+      showError(data.message);
+    }
+  });
+
+  updateMode();
+})();
+</script>
