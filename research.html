@@ -1,0 +1,171 @@
+---
+layout: default
+title: Research
+section: research
+permalink: /research/
+---
+<h1>Research</h1>
+<p class="lede">My research has two complementary sides: the methods and systems I work on, and the projects, funding and transfer activities where those ideas are developed and applied.</p>
+
+<nav class="research-quick-nav" aria-label="Research page sections">
+  <a href="#research-directions">Research directions</a>
+  <a href="#competitive-research">Competitive research</a>
+  <a href="#industry-rd">Industry R&amp;D</a>
+  <a href="#transfer-innovation">Transfer &amp; innovation</a>
+</nav>
+
+<section class="section research-directions-section" id="research-directions">
+  <div class="research-section-title">
+    <div>
+      <span class="research-eyebrow">Methods &amp; systems</span>
+      <h2>Research directions</h2>
+    </div>
+    <p>Three connected areas, from models and inverse problems to sound-producing systems and advanced sensing.</p>
+  </div>
+
+  <div class="research-direction-grid">
+  {% for d in site.data.research.directions %}
+    <article class="research-direction-card">
+      <div class="research-direction-topline">
+        <span class="research-direction-number">0{{ forloop.index }}</span>
+        <span class="research-direction-icon" aria-hidden="true">
+          {% if d.id == 'signal-processing-system-modeling' %}
+          <svg viewBox="0 0 48 34"><path d="M2 18c5 0 5-12 10-12s5 22 10 22 5-18 10-18 5 8 14 8"/><path d="M4 32h40"/></svg>
+          {% elsif d.id == 'audio-speech' %}
+          <svg viewBox="0 0 48 34"><path d="M3 17h5l4-9 5 18 5-24 5 29 5-20 4 11 4-5h5"/></svg>
+          {% else %}
+          <svg viewBox="0 0 48 34"><circle cx="24" cy="17" r="2"/><path d="M17 10a10 10 0 0 0 0 14M31 10a10 10 0 0 1 0 14M11 5a17 17 0 0 0 0 24M37 5a17 17 0 0 1 0 24"/></svg>
+          {% endif %}
+        </span>
+      </div>
+      <h3>{{ d.title }}</h3>
+      <p>{{ d.summary }}</p>
+      <div class="research-topic-preview">
+        {% for topic in d.topics limit:4 %}<span>{{ topic }}</span>{% endfor %}
+      </div>
+      <a class="research-card-link" href="#{{ d.id }}">Explore direction ↓</a>
+    </article>
+  {% endfor %}
+  </div>
+
+  <div class="research-direction-details">
+  {% for d in site.data.research.directions %}
+    <article class="research-direction-detail" id="{{ d.id }}">
+      <header class="research-detail-heading">
+        <span class="research-detail-number">0{{ forloop.index }}</span>
+        <div>
+          <span class="research-eyebrow">Research direction</span>
+          <h3>{{ d.title }}</h3>
+        </div>
+      </header>
+
+      <div class="research-example-grid">
+        {% for ex in d.examples %}
+        <div class="research-example-card">
+          <strong>{{ ex.title }}</strong>
+          <p>{{ ex.text }}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="research-topic-line" aria-label="Topics">
+        {% for topic in d.topics %}<span>{{ topic }}</span>{% endfor %}
+      </div>
+    </article>
+  {% endfor %}
+  </div>
+
+  <div class="research-applications">
+    <span class="research-eyebrow">Application contexts</span>
+    <div>{% for a in site.data.research.applications %}<span>{{ a }}</span>{% endfor %}</div>
+  </div>
+</section>
+
+<section class="section research-projects-section" id="projects-funding-transfer">
+  <div class="research-section-title research-projects-title">
+    <div>
+      <span class="research-eyebrow">Research in practice</span>
+      <h2>Projects, Funding &amp; Transfer</h2>
+    </div>
+    <p>Selected funded research, industry R&amp;D and technology-transfer activity.</p>
+  </div>
+
+  <section class="research-project-group research-project-group-blue" id="competitive-research">
+    <header class="research-group-heading">
+      <span class="research-group-mark research-group-mark-blue" aria-hidden="true"></span>
+      <div>
+        <span class="research-eyebrow">Competitive research</span>
+        <h3>Selected funded projects</h3>
+      </div>
+    </header>
+
+    <div class="research-project-grid">
+      {% for p in site.data.projects.competitive_current %}
+      <article class="research-project-card competitive-card">
+        <div class="research-project-meta"><span>{{ p.years }}</span><span>{{ p.funder }}</span></div>
+        <h4>{{ p.title }}</h4>
+        {% if p.role %}<div class="research-role">{{ p.role }}</div>{% endif %}
+        <p>{{ p.summary }}</p>
+      </article>
+      {% endfor %}
+    </div>
+
+    <div class="research-previous-projects">
+      <h4>Selected previous projects</h4>
+      {% for p in site.data.projects.competitive_previous %}
+      <article class="research-previous-row">
+        <div class="research-previous-year">{{ p.years }}</div>
+        <div>
+          <strong>{{ p.title }}</strong>
+          <div class="meta">{{ p.funder }}</div>
+          <p>{{ p.summary }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="research-project-group research-project-group-teal" id="industry-rd">
+    <header class="research-group-heading">
+      <span class="research-group-mark research-group-mark-teal" aria-hidden="true"></span>
+      <div>
+        <span class="research-eyebrow">Industry-funded R&amp;D</span>
+        <h3>Applied research with companies</h3>
+      </div>
+    </header>
+
+    <div class="research-project-grid research-industry-grid">
+      {% for p in site.data.projects.industry_rd %}
+      <article class="research-project-card industry-card">
+        <div class="research-project-meta"><span>{{ p.organization }}</span><span>{{ p.years }}</span></div>
+        <h4>{{ p.title }}</h4>
+        {% if p.role %}<div class="research-role">{{ p.role }}</div>{% endif %}
+        <p>{{ p.summary }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="research-project-group research-project-group-warm transfer-group" id="transfer-innovation">
+    <header class="research-group-heading">
+      <span class="research-group-mark research-group-mark-warm" aria-hidden="true"></span>
+      <div>
+        <span class="research-eyebrow">Transfer &amp; innovation</span>
+        <h3>From research to products and ventures</h3>
+      </div>
+    </header>
+
+    <div class="research-project-grid research-transfer-grid">
+      {% for p in site.data.projects.transfer %}
+      <article class="research-project-card transfer-card">
+        <div class="research-project-meta"><span>{{ p.years }}</span><span>{{ p.kind }}</span></div>
+        <h4>{{ p.title }}</h4>
+        <p>{{ p.summary }}</p>
+        {% if p.highlights %}
+        <div class="research-highlight-list">{% for h in p.highlights %}<span>{{ h }}</span>{% endfor %}</div>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+</section>
