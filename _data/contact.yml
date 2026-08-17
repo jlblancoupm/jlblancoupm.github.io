@@ -1,0 +1,5 @@
+provider: google_apps_script
+endpoint: https://script.google.com/macros/s/AKfycbxWQ3a2IGI6hShrIo-EX41XeKNXeR7ayLec8DoMYkddGGERWB0v4uyD7SLvRDo_POUD4w/exec
+success_message: Thank you. Your message has been sent.
+max_file_mb: 5
+max_total_mb: 15
