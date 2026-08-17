@@ -1,0 +1,23 @@
+<aside class="profile-card">
+  <div class="profile-copy">
+    <h2 class="profile-name">
+      <span>{{ site.data.profile.name_line1 }}</span>
+      <span>{{ site.data.profile.name_line2 }}</span>
+    </h2>
+
+    <p class="profile-title">{{ site.data.profile.title }}</p>
+    <p class="profile-role">{{ site.data.profile.role }}</p>
+  </div>
+
+  <img class="avatar" src="{{ '/assets/images/avatar.png' | relative_url }}" alt="Illustrated portrait of José Luis Blanco Murillo">
+
+  <div class="profile-actions" aria-label="Profile links">
+    <a class="profile-action profile-action-primary" href="{{ '/contact/#contact-form' | relative_url }}">
+      <span aria-hidden="true">✉</span><span>Contact</span>
+    </a>
+    <div class="profile-secondary-links">
+      <a class="profile-external profile-orcid" href="https://orcid.org/{{ site.data.profile.orcid }}" target="_blank" rel="noopener"><span class="orcid-dot">iD</span><span>ORCID</span><span aria-hidden="true">↗</span></a>
+      <a class="profile-external" href="https://github.com/{{ site.data.profile.github }}" target="_blank" rel="noopener"><span class="github-mark" aria-hidden="true">●</span><span>GitHub</span><span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</aside>
